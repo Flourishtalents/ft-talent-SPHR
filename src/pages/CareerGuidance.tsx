@@ -102,7 +102,7 @@ export default function CareerGuidance() {
     return (
       <div className="min-h-screen pt-20 pb-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">Masterclass not found</h1>
+          <h1 className="text-4xl font-playfair font-bold text-white mb-2">Masterclass not found</h1>
         </div>
       </div>
     );
@@ -111,22 +111,22 @@ export default function CareerGuidance() {
   return (
     <div className="min-h-screen pt-20 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">Career Guidance: {data.title}</h1>
-        <p className="text-brand-secondary mb-8">Get inspired and motivated to enroll in this masterclass.</p>
+        <h1 className="text-4xl font-playfair font-bold text-white mb-2">Career Guidance: {data.title}</h1>
+        <p className="text-gray-300 mb-8">Get inspired and motivated to enroll in this masterclass.</p>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Testimonials */}
-          <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-            <h2 className="text-2xl font-semibold text-brand-text mb-6">Testimonials</h2>
+          <div className="bg-gray-800 border border-gray-700 p-6 rounded-2xl">
+            <h2 className="text-2xl font-semibold text-white mb-6">Testimonials</h2>
             <div className="space-y-4">
               {data.testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-brand-light/10 p-4 rounded-lg">
+                <div key={index} className="bg-white/5 p-4 rounded-lg">
                   <div className="flex items-center space-x-1 mb-2">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-brand-accent fill-current" />)}
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />)}
                   </div>
-                  <p className="text-brand-secondary italic mb-2">"{testimonial.comment}"</p>
+                  <p className="text-gray-300 italic mb-2">"{testimonial.comment}"</p>
                   <div className="text-sm">
-                    <span className="text-brand-text font-medium">{testimonial.name}</span>
+                    <span className="text-white font-medium">{testimonial.name}</span>
                   </div>
                 </div>
               ))}
@@ -134,13 +134,13 @@ export default function CareerGuidance() {
           </div>
 
           {/* Case Studies */}
-          <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-            <h2 className="text-2xl font-semibold text-brand-text mb-6">Case Studies & Success Stories</h2>
+          <div className="bg-gray-800 border border-gray-700 p-6 rounded-2xl">
+            <h2 className="text-2xl font-semibold text-white mb-6">Case Studies & Success Stories</h2>
             <div className="space-y-3">
               {data.caseStudies.map((study, index) => (
-                <a key={index} href={study.link} className="flex items-center space-x-3 p-3 hover:bg-brand-light/20 rounded-lg transition-colors">
-                  <BookOpen className="w-5 h-5 text-brand-accent" />
-                  <span className="text-brand-text font-medium">{study.title}</span>
+                <a key={index} href={study.link} className="flex items-center space-x-3 p-3 hover:bg-white/5 rounded-lg transition-colors">
+                  <BookOpen className="w-5 h-5 text-rose-400" />
+                  <span className="text-white font-medium">{study.title}</span>
                 </a>
               ))}
             </div>
@@ -148,12 +148,12 @@ export default function CareerGuidance() {
         </div>
 
         {/* Enrollment Section */}
-        <div className="mt-8 bg-brand-mid border border-brand-light p-6 rounded-2xl">
-          <h2 className="text-2xl font-semibold text-brand-text mb-6">Ready to Enroll?</h2>
-          <p className="text-brand-secondary mb-4">Take the next step in your career and enroll in this masterclass today.</p>
+        <div className="mt-8 bg-gray-800 border border-gray-700 p-6 rounded-2xl">
+          <h2 className="text-2xl font-semibold text-white mb-6">Ready to Enroll?</h2>
+          <p className="text-gray-300 mb-4">Take the next step in your career and enroll in this masterclass today.</p>
           <Link
             to={`/masterclass?enroll=${masterclassId}`}
-            className="inline-flex items-center px-8 py-4 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl transition-all"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all"
           >
             Enroll Now
           </Link>

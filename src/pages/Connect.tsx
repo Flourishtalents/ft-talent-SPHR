@@ -32,36 +32,36 @@ export default function Connect() {
   return (
     <div className="min-h-screen pt-20 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">Connect</h1>
-        <p className="text-brand-secondary mb-8">Discover and connect with talented creators.</p>
+        <h1 className="text-4xl font-playfair font-bold text-white mb-2">Connect</h1>
+        <p className="text-gray-300 mb-8">Discover and connect with talented creators.</p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {creators.map(creator => (
-            <div key={creator.id} className="bg-brand-mid border border-brand-light p-6 rounded-2xl text-center">
+            <div key={creator.id} className="bg-gray-800 border border-gray-700 p-6 rounded-2xl text-center">
               <img src={creator.avatar} alt={creator.name} className="w-32 h-32 rounded-full mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-brand-text">{creator.name}</h3>
-              <p className="text-brand-secondary mb-4">{creator.title}</p>
+              <h3 className="text-xl font-semibold text-white">{creator.name}</h3>
+              <p className="text-gray-400 mb-4">{creator.title}</p>
               <div className="flex justify-center space-x-4 mb-4">
                 <div className="text-center">
-                  <p className="text-brand-text font-bold">{creator.followers}</p>
-                  <p className="text-brand-secondary text-sm">Followers</p>
+                  <p className="text-white font-bold">{creator.followers}</p>
+                  <p className="text-gray-400 text-sm">Followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-brand-text font-bold">{creator.rating}</p>
-                  <p className="text-brand-secondary text-sm">Rating</p>
+                  <p className="text-white font-bold">{creator.rating}</p>
+                  <p className="text-gray-400 text-sm">Rating</p>
                 </div>
               </div>
               <div className="flex justify-center space-x-2">
-                <button className="p-2 bg-brand-light/10 rounded-full text-brand-text hover:bg-brand-light/20">
+                <button className="p-2 bg-white/10 rounded-full text-white hover:bg-white/20">
                   <UserPlus className="w-5 h-5" />
                 </button>
-                <button className="p-2 bg-brand-light/10 rounded-full text-brand-text hover:bg-brand-light/20">
+                <button className="p-2 bg-white/10 rounded-full text-white hover:bg-white/20">
                   <MessageCircle className="w-5 h-5" />
                 </button>
-                <button className="p-2 bg-brand-light/10 rounded-full text-brand-text hover:bg-brand-light/20">
+                <button className="p-2 bg-white/10 rounded-full text-white hover:bg-white/20">
                   <Share2 className="w-5 h-5" />
                 </button>
-                <button className="p-2 bg-brand-light/10 rounded-full text-brand-text hover:bg-brand-light/20">
+                <button className="p-2 bg-white/10 rounded-full text-white hover:bg-white/20">
                   <DollarSign className="w-5 h-5" />
                 </button>
               </div>

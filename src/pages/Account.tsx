@@ -15,37 +15,37 @@ export default function Account() {
   return (
     <div className="min-h-screen pt-20 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">My Account</h1>
-        <p className="text-brand-secondary mb-8">Manage your preferences and curated content.</p>
+        <h1 className="text-4xl font-playfair font-bold text-white mb-2">My Account</h1>
+        <p className="text-gray-300 mb-8">Manage your preferences and curated content.</p>
 
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
             {/* Favorite Creators */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-              <h2 className="text-2xl font-semibold text-brand-text mb-6">Favorite Creators</h2>
+            <div className="bg-gray-800 border border-gray-700 p-6 rounded-2xl">
+              <h2 className="text-2xl font-semibold text-white mb-6">Favorite Creators</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {favoriteCreators.map(creator => (
                   <div key={creator.id} className="text-center">
                     <img src={creator.avatar} alt={creator.name} className="w-24 h-24 rounded-full mx-auto mb-2" />
-                    <p className="text-brand-text font-medium">{creator.name}</p>
+                    <p className="text-white font-medium">{creator.name}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Playlists */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-              <h2 className="text-2xl font-semibold text-brand-text mb-6">My Playlists</h2>
+            <div className="bg-gray-800 border border-gray-700 p-6 rounded-2xl">
+              <h2 className="text-2xl font-semibold text-white mb-6">My Playlists</h2>
               <div className="space-y-4">
                 {playlists.map(playlist => (
                   <div key={playlist.id} className="bg-white/5 p-4 rounded-lg">
-                    <h3 className="text-xl font-semibold text-brand-text mb-2">{playlist.name}</h3>
+                    <h3 className="text-xl font-semibold text-white mb-2">{playlist.name}</h3>
                     <div className="space-y-2">
                       {playlist.content.map((item, index) => (
-                        <div key={index} className="flex items-center space-x-3 text-brand-secondary">
-                          {item.type === 'music' && <Music className="w-4 h-4 text-brand-accent" />}
-                          {item.type === 'video' && <Film className="w-4 h-4 text-brand-accent" />}
-                          {item.type === 'podcast' && <User className="w-4 h-4 text-brand-accent" />}
+                        <div key={index} className="flex items-center space-x-3 text-gray-300">
+                          {item.type === 'music' && <Music className="w-4 h-4 text-rose-400" />}
+                          {item.type === 'video' && <Film className="w-4 h-4 text-blue-400" />}
+                          {item.type === 'podcast' && <User className="w-4 h-4 text-green-400" />}
                           <span>{item.title}</span>
                         </div>
                       ))}
@@ -58,8 +58,8 @@ export default function Account() {
 
           <div className="space-y-6">
             {/* Account Summary */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-              <h2 className="text-2xl font-semibold text-brand-text mb-6">Account Summary</h2>
+            <div className="bg-gray-800 border border-gray-700 p-6 rounded-2xl">
+              <h2 className="text-2xl font-semibold text-white mb-6">Account Summary</h2>
               {/* Add summary details here */}
             </div>
           </div>

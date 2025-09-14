@@ -249,33 +249,33 @@ export default function Masterclass() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">Masterclass</h1>
-          <p className="text-brand-secondary">Learn from industry experts and advance your career</p>
+          <h1 className="text-4xl font-playfair font-bold text-white mb-2">Masterclass</h1>
+          <p className="text-gray-300">Learn from industry experts and advance your career</p>
         </div>
 
 
         {/* Search and Filters */}
         <div className="flex flex-col lg:flex-row gap-4 mb-8">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-brand-secondary w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="Search masterclasses..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-brand-dark border border-brand-light rounded-xl text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+              className="w-full pl-10 pr-4 py-3 glass-effect rounded-xl border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
             />
           </div>
           
           <div className="flex items-center space-x-4">
-            <Filter className="text-brand-secondary w-5 h-5" />
+            <Filter className="text-gray-400 w-5 h-5" />
             <select
               value={activeFilter}
               onChange={(e) => setActiveFilter(e.target.value)}
-              className="px-4 py-3 bg-brand-dark border border-brand-light rounded-xl text-brand-text focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+              className="px-4 py-3 glass-effect rounded-xl border border-white/20 text-white bg-transparent focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
             >
               {categories.map((category) => (
-                <option key={category} value={category} className="bg-brand-dark">
+                <option key={category} value={category} className="bg-gray-800">
                   {category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                 </option>
               ))}
@@ -287,15 +287,15 @@ export default function Masterclass() {
         <div className="grid lg:grid-cols-3 gap-8 mb-12">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-semibold text-brand-text mb-6">Featured Masterclasses</h2>
+            <h2 className="text-2xl font-semibold text-white mb-6">Featured Masterclasses</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {filteredMasterclasses.map((course) => (
-                <div key={course.id} className="bg-brand-mid border border-brand-light rounded-2xl overflow-hidden hover-lift">
+                <div key={course.id} className="glass-effect rounded-2xl overflow-hidden hover-lift">
                   {/* Thumbnail */}
-                  <div className="relative aspect-video bg-brand-dark">
+                  <div className="relative aspect-video bg-gray-800">
                     <img src={course.thumbnail} alt={course.title} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <Play className="w-12 h-12 text-brand-text" />
+                      <Play className="w-12 h-12 text-white" />
                     </div>
                     
                     {course.isEnrolled && (
@@ -308,21 +308,21 @@ export default function Masterclass() {
                   {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="px-2 py-1 bg-brand-accent/20 text-brand-accent/80 text-xs rounded-full">
+                      <span className="px-2 py-1 bg-rose-400/20 text-rose-300 text-xs rounded-full">
                         {course.level}
                       </span>
                       <div className="flex items-center space-x-1">
-                        <Star className="w-4 h-4 text-brand-accent fill-current" />
-                        <span className="text-brand-secondary text-sm">{course.rating}</span>
+                        <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                        <span className="text-gray-300 text-sm">{course.rating}</span>
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-semibold text-brand-text mb-2">{course.title}</h3>
-                    <p className="text-brand-secondary text-sm mb-3">by {course.instructor}</p>
-                    <p className="text-brand-secondary text-sm mb-4 line-clamp-2">{course.description}</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">{course.title}</h3>
+                    <p className="text-gray-200 text-sm mb-3">by {course.instructor}</p>
+                    <p className="text-gray-300 text-sm mb-4 line-clamp-2">{course.description}</p>
 
                     {/* Course Stats */}
-                    <div className="flex items-center justify-between text-sm text-brand-secondary mb-4">
+                    <div className="flex items-center justify-between text-sm text-gray-200 mb-4">
                       <div className="flex items-center space-x-1">
                         <Clock className="w-4 h-4" />
                         <span>{course.duration}</span>
@@ -340,13 +340,13 @@ export default function Masterclass() {
                     {/* Features */}
                     <div className="flex flex-wrap gap-1 mb-4">
                       {course.features.map((feature, index) => (
-                        <span key={index} className="px-2 py-1 bg-brand-accent/20 text-brand-accent/80 text-xs rounded">
+                        <span key={index} className="px-2 py-1 bg-purple-400/20 text-purple-300 text-xs rounded">
                           {feature}
                         </span>
                       ))}
                       <Link
                         to={`/career-guidance/${course.id}`}
-                        className="px-2 py-1 bg-brand-accent/20 text-brand-accent/80 text-xs rounded"
+                        className="px-2 py-1 bg-blue-400/20 text-blue-300 text-xs rounded"
                       >
                         Career Guidance
                       </Link>
@@ -356,12 +356,12 @@ export default function Masterclass() {
                     {course.isEnrolled && (
                       <div className="mb-4">
                         <div className="flex justify-between text-sm mb-1">
-                          <span className="text-brand-secondary">Progress</span>
-                          <span className="text-brand-secondary">{course.progress}%</span>
+                          <span className="text-gray-300">Progress</span>
+                          <span className="text-gray-300">{course.progress}%</span>
                         </div>
-                        <div className="w-full bg-brand-light rounded-full h-2">
+                        <div className="w-full bg-gray-700 rounded-full h-2">
                           <div 
-                            className="bg-brand-accent h-2 rounded-full transition-all duration-300"
+                            className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full transition-all duration-300"
                             style={{ width: `${course.progress}%` }}
                           />
                         </div>
@@ -370,7 +370,7 @@ export default function Masterclass() {
 
                     {/* Action Button */}
                     <div className="flex items-center justify-between">
-                      <div className="text-2xl font-bold text-brand-text">UGX {course.price.toLocaleString()}</div>
+                      <div className="text-2xl font-bold text-white">UGX {course.price.toLocaleString()}</div>
                       {course.isEnrolled ? (
                         <button className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
                           Continue Learning
@@ -378,7 +378,7 @@ export default function Masterclass() {
                       ) : (
                         <button
                           onClick={() => handleEnroll(course.id)}
-                          className="px-6 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all"
+                          className="px-6 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
                         >
                           Enroll Now
                         </button>
@@ -393,30 +393,30 @@ export default function Masterclass() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* My Learning */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-brand-text mb-4">My Learning</h3>
+            <div className="glass-effect p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-white mb-4">My Learning</h3>
               <div className="space-y-3">
                 {masterclasses.filter(c => c.isEnrolled).map((course) => (
-                  <div key={course.id} className="flex items-center space-x-3 p-3 hover:bg-brand-light/10 rounded-lg transition-colors">
+                  <div key={course.id} className="flex items-center space-x-3 p-3 hover:bg-white/5 rounded-lg transition-colors">
                     <img src={course.thumbnail} alt={course.title} className="w-12 h-12 rounded-lg object-cover" />
                     <div className="flex-1">
-                      <div className="text-brand-text text-sm font-medium line-clamp-1">{course.title}</div>
-                      <div className="text-brand-secondary text-xs">{course.progress}% complete</div>
+                      <div className="text-white text-sm font-medium line-clamp-1">{course.title}</div>
+                      <div className="text-gray-200 text-xs">{course.progress}% complete</div>
                     </div>
                   </div>
                 ))}
                 {masterclasses.filter(c => c.isEnrolled).length === 0 && (
-                  <p className="text-brand-secondary text-sm">No enrolled courses yet</p>
+                  <p className="text-gray-200 text-sm">No enrolled courses yet</p>
                 )}
               </div>
             </div>
 
             {/* Mentorship CTA */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+            <div className="glass-effect p-6 rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30">
               <div className="flex flex-col items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-semibold text-brand-text mb-2">Need Mentorship?</h3>
-                  <p className="text-brand-secondary">Get personalized guidance from industry professionals.</p>
+                  <h3 className="text-xl font-semibold text-white mb-2">Need Mentorship?</h3>
+                  <p className="text-gray-300">Get personalized guidance from industry professionals.</p>
                 </div>
                 <button
                   onClick={() => {
@@ -428,7 +428,7 @@ export default function Masterclass() {
                     setShowMentorshipModal(true);
                     setMentorshipRequestSent(false);
                   }}
-                  className="mt-4 w-full px-6 py-3 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl transition-all"
+                  className="mt-4 w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all"
                 >
                   Request Mentorship
                 </button>
@@ -436,14 +436,14 @@ export default function Masterclass() {
             </div>
 
             {/* Community Support CTA */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+            <div className="glass-effect p-6 rounded-2xl bg-gradient-to-r from-blue-500/20 to-teal-500/20 border border-blue-400/30">
                 <div className="flex flex-col items-start justify-between">
                 <div>
-                    <h3 className="text-xl font-semibold text-brand-text mb-2">Community Support</h3>
-                    <p className="text-brand-secondary">Have questions? Get help from our community of creators and experts.</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">Community Support</h3>
+                    <p className="text-gray-300">Have questions? Get help from our community of creators and experts.</p>
                 </div>
                 <button
-                    className="mt-4 w-full px-6 py-3 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl transition-all"
+                    className="mt-4 w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-teal-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all"
                 >
                     Ask the Community
                 </button>
@@ -451,20 +451,20 @@ export default function Masterclass() {
             </div>
 
             {/* Upcoming Workshops */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-brand-text mb-4">Upcoming Workshops</h3>
+            <div className="glass-effect p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-white mb-4">Upcoming Workshops</h3>
               <div className="space-y-4">
                 {workshops.map((workshop) => (
-                  <div key={workshop.id} className="border border-brand-light rounded-lg p-4">
-                    <h4 className="text-brand-text font-medium mb-2">{workshop.title}</h4>
-                    <div className="text-brand-secondary text-sm space-y-1">
+                  <div key={workshop.id} className="border border-gray-700 rounded-lg p-4">
+                    <h4 className="text-white font-medium mb-2">{workshop.title}</h4>
+                    <div className="text-gray-200 text-sm space-y-1">
                       <div>{workshop.date} at {workshop.time}</div>
                       <div>{workshop.duration} • {workshop.spots} spots left</div>
                       <div>by {workshop.instructor}</div>
                     </div>
                     <div className="flex items-center justify-between mt-3">
-                      <span className="text-brand-accent font-bold">UGX {workshop.price.toLocaleString()}</span>
-                      <button className="px-4 py-2 bg-brand-accent text-brand-text text-sm rounded-lg hover:shadow-lg transition-all">
+                      <span className="text-rose-400 font-bold">UGX {workshop.price.toLocaleString()}</span>
+                      <button className="px-4 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white text-sm rounded-lg hover:shadow-lg transition-all">
                         Register
                       </button>
                     </div>
@@ -474,21 +474,21 @@ export default function Masterclass() {
             </div>
 
             {/* Achievements */}
-            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-brand-text mb-4">My Achievements</h3>
+            <div className="glass-effect p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-white mb-4">My Achievements</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <Award className="w-8 h-8 text-brand-accent" />
+                  <Award className="w-8 h-8 text-yellow-400" />
                   <div>
-                    <div className="text-brand-text font-medium">Brand Ambassador Certified</div>
-                    <div className="text-brand-secondary text-sm">Completed November 2025</div>
+                    <div className="text-white font-medium">Brand Ambassador Certified</div>
+                    <div className="text-gray-200 text-sm">Completed November 2025</div>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-8 h-8 text-green-400" />
                   <div>
-                    <div className="text-brand-text font-medium">First Course Completed</div>
-                    <div className="text-brand-secondary text-sm">Achievement unlocked</div>
+                    <div className="text-white font-medium">First Course Completed</div>
+                    <div className="text-gray-400 text-sm">Achievement unlocked</div>
                   </div>
                 </div>
               </div>
@@ -499,11 +499,11 @@ export default function Masterclass() {
       {/* Mentorship Modal */}
       {showMentorshipModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl max-w-md w-full">
+          <div className="glass-effect p-6 rounded-2xl max-w-md w-full">
               {!mentorshipRequestSent ? (
               <>
-                  <h3 className="text-xl font-semibold text-brand-text mb-4">Request Mentorship</h3>
-                  <p className="text-brand-secondary mb-4">
+                  <h3 className="text-xl font-semibold text-white mb-4">Request Mentorship</h3>
+                  <p className="text-gray-300 mb-4">
                   Fill out the form below to request a mentorship session.
                   </p>
                   <form
@@ -511,13 +511,13 @@ export default function Masterclass() {
                   >
                   <div className="space-y-4">
                       <textarea
-                      className="w-full h-24 bg-transparent border border-brand-light rounded-lg p-3 text-brand-text resize-none focus:border-brand-accent outline-none"
+                      className="w-full h-24 bg-transparent border border-gray-600 rounded-lg p-3 text-white resize-none focus:border-rose-400 outline-none"
                       placeholder="What do you need help with?"
                       required
                       ></textarea>
                       <button
                       type="submit"
-                      className="w-full py-3 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl transition-all"
+                      className="w-full py-3 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all"
                       >
                       Submit Request
                       </button>
@@ -526,22 +526,22 @@ export default function Masterclass() {
               </>
               ) : (
               <div>
-                  <h3 className="text-xl font-semibold text-brand-text mb-4">Request Sent!</h3>
-                  <p className="text-brand-secondary mb-4">
+                  <h3 className="text-xl font-semibold text-white mb-4">Request Sent!</h3>
+                  <p className="text-gray-300 mb-4">
                   Your mentorship request has been received for review. We will notify you once it's approved.
                   </p>
-                  <p className="text-brand-accent text-sm mb-4">
+                  <p className="text-yellow-400 text-sm mb-4">
                   Please note: Mentorship is a premium feature.
                   </p>
                   <div className="flex space-x-3">
                   <button
                       onClick={() => setShowMentorshipModal(false)}
-                      className="flex-1 py-2 bg-brand-light text-brand-text rounded-lg hover:bg-brand-light/80 transition-colors"
+                      className="flex-1 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
                   >
                       Close
                   </button>
                   <button
-                      className="flex-1 py-2 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl transition-all"
+                      className="flex-1 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold rounded-xl hover:shadow-xl transition-all"
                   >
                       Upgrade to Premium
                   </button>

@@ -9,44 +9,43 @@ export default function LandingPage() {
       <div className="pt-20 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <div className="animate-float mb-8">
-            <Crown className="w-20 h-20 text-brand-accent mx-auto mb-6" />
+            <Crown className="w-20 h-20 text-rose-400 mx-auto mb-6" />
           </div>
           
-          <h1 className="text-6xl md:text-7xl font-playfair font-bold text-brand-text mb-6">
-            Your Talent <span className="text-brand-accent">Deserves</span>
+          <h1 className="text-6xl md:text-7xl font-playfair font-bold text-white mb-6">
+            Bringing <span className="gradient-text">Creative Dreams</span>
             <br />
-            The World's Stage
+            to Life
           </h1>
           
-          <p className="text-xl text-brand-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
-            Join the premier platform where talented creatives showcase their skills, build outstanding portfolios,
-            learn from masterclasses, and get hired by top clients worldwide.
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Discover prime talent and support your favorite Creatives. Develop your own talent and flourish with our Masterclasses and Media platforms.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               to="/signup"
-              className="px-8 py-4 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-glow"
+              className="px-8 py-4 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-glow"
             >
               Start Your Journey <ArrowRight className="inline w-5 h-5 ml-2" />
             </Link>
-            <button className="px-8 py-4 bg-brand-mid border border-brand-light text-brand-text font-semibold rounded-xl hover:bg-brand-light/20 transition-all duration-300 flex items-center justify-center">
+            <button className="px-8 py-4 glass-effect text-white font-semibold rounded-xl hover:bg-white/20 transition-all duration-300 flex items-center justify-center">
               <Play className="w-5 h-5 mr-2" />
               Watch Demo
             </button>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-8 text-brand-secondary">
+          <div className="flex flex-wrap justify-center gap-8 text-gray-300">
             <div className="flex items-center space-x-2">
-              <Shield className="w-5 h-5 text-brand-accent" />
+              <Shield className="w-5 h-5 text-green-400" />
               <span>100% Secure Platform</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Users className="w-5 h-5 text-brand-accent" />
+              <Users className="w-5 h-5 text-blue-400" />
               <span>Global Audience</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Award className="w-5 h-5 text-brand-accent" />
+              <Award className="w-5 h-5 text-yellow-400" />
               <span>Certification</span>
             </div>
           </div>
@@ -57,10 +56,10 @@ export default function LandingPage() {
       <div className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-playfair font-bold text-brand-text mb-6">
-              Everything You Need to <span className="text-brand-accent">Succeed</span>
+            <h2 className="text-4xl font-playfair font-bold text-white mb-6">
+              Creatives: Find All You Need to <span className="gradient-text">Flourish</span>
             </h2>
-            <p className="text-brand-secondary text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               From portfolio creation to getting hired, we provide all the tools and opportunities you need.
             </p>
           </div>
@@ -98,12 +97,12 @@ export default function LandingPage() {
                 description: "Participate in exclusive events, competitions, and networking opportunities."
               }
             ].map((feature, index) => (
-              <div key={index} className="bg-brand-mid border border-brand-light p-8 rounded-2xl hover-lift">
-                <div className="text-brand-accent mb-4">
+              <div key={index} className="glass-effect p-8 rounded-2xl hover-lift">
+                <div className="text-rose-400 mb-4">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-brand-text mb-3">{feature.title}</h3>
-                <p className="text-brand-secondary">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-3">{feature.title}</h3>
+                <p className="text-gray-300">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -114,10 +113,10 @@ export default function LandingPage() {
       <div className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-            <h2 className="text-4xl font-playfair font-bold text-brand-text mb-6">
-            Featured <span className="text-brand-accent">Releases</span>
+            <h2 className="text-4xl font-playfair font-bold text-white mb-6">
+            Featured <span className="gradient-text">Releases</span>
             </h2>
-            <p className="text-brand-secondary text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Check out the latest and greatest from our talented creators.
             </p>
         </div>
@@ -149,19 +148,19 @@ export default function LandingPage() {
                 thumbnail: 'https://images.pexels.com/photos/417273/pexels-photo-417273.jpeg?auto=compress&cs=tinysrgb&w=400'
             }
             ].map((release, index) => (
-            <div key={index} className="bg-brand-mid border border-brand-light rounded-2xl overflow-hidden hover-lift group">
-                <div className="relative aspect-video bg-brand-dark">
+            <div key={index} className="glass-effect rounded-2xl overflow-hidden hover-lift group">
+                <div className="relative aspect-video bg-gray-800">
                 <img src={release.thumbnail} alt={release.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <Play className="w-12 h-12 text-brand-text" />
+                    <Play className="w-12 h-12 text-white" />
                 </div>
-                <div className="absolute top-2 left-2 px-2 py-1 bg-brand-accent/80 text-brand-text text-xs font-bold rounded-full">
+                <div className="absolute top-2 left-2 px-2 py-1 bg-rose-500/80 text-white text-xs font-bold rounded-full">
                     {release.type}
                 </div>
                 </div>
                 <div className="p-4">
-                <h3 className="text-brand-text font-semibold mb-1">{release.title}</h3>
-                <p className="text-brand-secondary text-sm">by {release.creator}</p>
+                <h3 className="text-white font-semibold mb-1">{release.title}</h3>
+                <p className="text-gray-400 text-sm">by {release.creator}</p>
                 </div>
             </div>
             ))}
@@ -170,7 +169,7 @@ export default function LandingPage() {
         <div className="text-center mt-12">
             <Link
             to="/media"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-brand-text bg-brand-accent hover:bg-brand-accent/80"
+            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700"
             >
             View More
             </Link>
@@ -182,10 +181,10 @@ export default function LandingPage() {
       <div className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-playfair font-bold text-brand-text mb-6">
-              Choose Your <span className="text-brand-accent">Membership</span>
+            <h2 className="text-4xl font-playfair font-bold text-white mb-6">
+              Choose Your <span className="gradient-text">Membership</span>
             </h2>
-            <p className="text-brand-secondary text-lg">
+            <p className="text-gray-300 text-lg">
               Start free and upgrade as you grow. Each tier unlocks powerful new features.
             </p>
           </div>
@@ -221,29 +220,29 @@ export default function LandingPage() {
                 popular: false
               }
             ].map((tier, index) => (
-              <div key={index} className={`bg-brand-mid border border-brand-light p-8 rounded-2xl hover-lift relative ${tier.popular ? 'ring-2 ring-brand-accent' : ''}`}>
+              <div key={index} className={`glass-effect p-8 rounded-2xl hover-lift relative ${tier.popular ? 'ring-2 ring-yellow-400' : ''}`}>
                 {tier.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-brand-accent text-brand-text px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
                 )}
                 
-                <div className={`w-12 h-12 rounded-lg bg-brand-accent flex items-center justify-center mb-4`}>
-                  <Crown className="w-6 h-6 text-brand-text" />
+                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${tier.color} flex items-center justify-center mb-4`}>
+                  <Crown className="w-6 h-6 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-brand-text mb-2">{tier.name}</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
                 <div className="mb-6">
-                  <span className="text-4xl font-bold text-brand-text">{tier.price}</span>
-                  <span className="text-brand-secondary">/month</span>
+                  <span className="text-4xl font-bold text-white">{tier.price}</span>
+                  <span className="text-gray-300">/month</span>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-brand-secondary">
-                      <Star className="w-4 h-4 text-brand-accent mr-3 flex-shrink-0" />
+                    <li key={featureIndex} className="flex items-center text-gray-300">
+                      <Star className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -253,8 +252,8 @@ export default function LandingPage() {
                   to="/signup"
                   className={`block w-full py-3 text-center font-semibold rounded-lg transition-all duration-300 ${
                     tier.popular
-                      ? 'bg-brand-accent text-brand-text hover:shadow-xl'
-                      : 'bg-brand-light/10 text-brand-text hover:bg-brand-light/20'
+                      ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black hover:shadow-xl'
+                      : 'bg-white/10 text-white hover:bg-white/20'
                   }`}
                 >
                   Get Started
@@ -268,15 +267,15 @@ export default function LandingPage() {
       {/* CTA Section */}
       <div className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-playfair font-bold text-brand-text mb-6">
-            Ready to Showcase Your <span className="text-brand-accent">Talent?</span>
+          <h2 className="text-4xl font-playfair font-bold text-white mb-6">
+            Ready to Showcase Your <span className="gradient-text">Talent?</span>
           </h2>
-          <p className="text-xl text-brand-secondary mb-8">
+          <p className="text-xl text-gray-300 mb-8">
             Join thousands of talented creatives who are building their careers and achieving their dreams.
           </p>
           <Link
             to="/signup"
-            className="inline-flex items-center px-8 py-4 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-lg"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-lg"
           >
             Start Your Journey Today <ArrowRight className="ml-2 w-5 h-5" />
           </Link>

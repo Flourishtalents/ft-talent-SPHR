@@ -64,7 +64,7 @@ export default function Navbar() {
   const navLinks = getNavLinks();
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass-effect">
+    <nav className="fixed top-0 w-full z-50 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Left Section */}
@@ -132,7 +132,7 @@ export default function Navbar() {
                     </button>
 
                     {showUserMenu && (
-                      <div className="absolute right-0 mt-2 w-48 glass-effect rounded-lg shadow-xl border border-white/20">
+                      <div className="absolute right-0 mt-2 w-48 bg-gray-700 rounded-lg shadow-xl border border-gray-600">
                         <div className="py-2">
                           <Link
                             to="/profile"
@@ -172,7 +172,7 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden glass-effect border-t border-white/20">
+        <div className="md:hidden bg-gray-800 border-t border-gray-700">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navLinks.map((link) => (
               <Link

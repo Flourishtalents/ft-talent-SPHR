@@ -173,20 +173,20 @@ export default function Media() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-white mb-2">Media</h1>
-          <p className="text-gray-300">Discover amazing content from talented creators</p>
+          <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">Media</h1>
+          <p className="text-brand-secondary">Discover amazing content from talented creators</p>
         </div>
 
         {/* Tabs */}
-        <div className="flex space-x-1 mb-8 glass-effect p-2 rounded-xl w-fit">
+        <div className="flex space-x-1 mb-8 bg-brand-mid border border-brand-light p-2 rounded-xl w-fit">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeTab === tab.id
-                  ? 'bg-gradient-to-r from-rose-500 to-purple-600 text-white shadow-lg'
-                  : 'text-gray-300 hover:text-white hover:bg-white/10'
+                  ? 'bg-brand-accent text-brand-text shadow-lg'
+                  : 'text-brand-secondary hover:text-brand-text hover:bg-brand-light/20'
               }`}
             >
               {tab.icon}
@@ -198,25 +198,25 @@ export default function Media() {
         {/* Search and Filters */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-brand-secondary w-5 h-5" />
             <input
               type="text"
               placeholder="Search content..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 glass-effect rounded-xl border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+              className="w-full pl-10 pr-4 py-3 bg-brand-dark border border-brand-light rounded-xl text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
             />
           </div>
           
           <div className="flex items-center space-x-4">
-            <Filter className="text-gray-400 w-5 h-5" />
+            <Filter className="text-brand-secondary w-5 h-5" />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-3 glass-effect rounded-xl border border-white/20 text-white bg-transparent focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+              className="px-4 py-3 bg-brand-dark border border-brand-light rounded-xl text-brand-text focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
             >
               {categories[activeTab as keyof typeof categories]?.map((category) => (
-                <option key={category} value={category} className="bg-gray-800">
+                <option key={category} value={category} className="bg-brand-dark">
                   {category.charAt(0).toUpperCase() + category.slice(1)}
                 </option>
               ))}
@@ -227,9 +227,9 @@ export default function Media() {
         {/* Content Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {mediaContent[activeTab as keyof typeof mediaContent]?.map((item: any) => (
-            <div key={item.id} className="glass-effect rounded-2xl overflow-hidden hover-lift group">
+            <div key={item.id} className="bg-brand-mid border border-brand-light rounded-2xl overflow-hidden hover-lift group">
               {/* Thumbnail/Image */}
-              <div className="relative aspect-video bg-gray-800">
+              <div className="relative aspect-video bg-brand-dark">
                 <img 
                   src={activeTab === 'stream' ? item.thumbnail : activeTab === 'listen' ? item.thumbnail : activeTab === 'blog' ? item.thumbnail : item.image}
                   alt={item.title} 
@@ -239,34 +239,34 @@ export default function Media() {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   {activeTab === 'stream' && (
-                    <Play className="w-12 h-12 text-white" />
+                    <Play className="w-12 h-12 text-brand-text" />
                   )}
                   {activeTab === 'listen' && (
-                    <Headphones className="w-12 h-12 text-white" />
+                    <Headphones className="w-12 h-12 text-brand-text" />
                   )}
                   {activeTab === 'blog' && (
-                    <Rss className="w-12 h-12 text-white" />
+                    <Rss className="w-12 h-12 text-brand-text" />
                   )}
                   {activeTab === 'resources' && (
-                    <ShoppingBag className="w-12 h-12 text-white" />
+                    <ShoppingBag className="w-12 h-12 text-brand-text" />
                   )}
                 </div>
 
                 {/* Premium Badge */}
                 {item.isPremium && (
-                  <div className="absolute top-2 right-2 px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded-full">
+                  <div className="absolute top-2 right-2 px-2 py-1 bg-brand-accent text-brand-text text-xs font-bold rounded-full">
                     PREMIUM
                   </div>
                 )}
 
                 {/* Duration/Info */}
                 {(activeTab === 'stream' || activeTab === 'listen') && (
-                  <div className="absolute bottom-2 right-2 px-2 py-1 bg-black/70 text-white text-xs rounded">
+                  <div className="absolute bottom-2 right-2 px-2 py-1 bg-brand-dark/70 text-brand-text text-xs rounded">
                     {item.duration}
                   </div>
                 )}
                 {activeTab === 'blog' && (
-                  <div className="absolute bottom-2 right-2 px-2 py-1 bg-black/70 text-white text-xs rounded">
+                  <div className="absolute bottom-2 right-2 px-2 py-1 bg-brand-dark/70 text-brand-text text-xs rounded">
                     {item.readTime}
                   </div>
                 )}
@@ -274,11 +274,11 @@ export default function Media() {
 
               {/* Content Info */}
               <div className="p-4">
-                <h3 className="text-white font-semibold mb-2 line-clamp-2">{item.title}</h3>
-                <p className="text-gray-400 text-sm mb-3">{item.creator}</p>
+                <h3 className="text-brand-text font-semibold mb-2 line-clamp-2">{item.title}</h3>
+                <p className="text-brand-secondary text-sm mb-3">{item.creator}</p>
 
                 {/* Stats */}
-                <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+                <div className="flex items-center justify-between text-sm text-brand-secondary mb-4">
                   {activeTab === 'stream' && (
                     <>
                       <div className="flex items-center space-x-1">
@@ -313,10 +313,10 @@ export default function Media() {
                   {activeTab === 'resources' && (
                     <>
                       <div className="flex items-center space-x-1">
-                        <Star className="w-4 h-4 text-yellow-400" />
+                        <Star className="w-4 h-4 text-brand-accent" />
                         <span>{item.rating}</span>
                       </div>
-                      <div className="text-rose-400 font-bold">UGX {item.price.toLocaleString()}</div>
+                      <div className="text-brand-accent font-bold">UGX {item.price.toLocaleString()}</div>
                     </>
                   )}
                 </div>
@@ -325,10 +325,10 @@ export default function Media() {
                 <div className="flex space-x-2">
                   {activeTab === 'resources' ? (
                     <>
-                      <button className="flex-1 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all text-sm font-medium">
+                      <button className="flex-1 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all text-sm font-medium">
                         Buy Now
                       </button>
-                      <button className="p-2 glass-effect text-gray-400 hover:text-white rounded-lg transition-colors">
+                      <button className="p-2 bg-brand-light/10 text-brand-secondary hover:text-brand-text rounded-lg transition-colors">
                         <Download className="w-4 h-4" />
                       </button>
                     </>
@@ -336,17 +336,17 @@ export default function Media() {
                     <>
                       <button
                         onClick={() => handleFollow(item.creator)}
-                        className="flex-1 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all text-sm font-medium"
+                        className="flex-1 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all text-sm font-medium"
                       >
                         Follow
                       </button>
                       <button
                         onClick={() => handleTip(item.creator)}
-                        className="p-2 glass-effect text-gray-400 hover:text-white rounded-lg transition-colors"
+                        className="p-2 bg-brand-light/10 text-brand-secondary hover:text-brand-text rounded-lg transition-colors"
                       >
                         <Heart className="w-4 h-4" />
                       </button>
-                      <button className="p-2 glass-effect text-gray-400 hover:text-white rounded-lg transition-colors">
+                      <button className="p-2 bg-brand-light/10 text-brand-secondary hover:text-brand-text rounded-lg transition-colors">
                         <Share2 className="w-4 h-4" />
                       </button>
                     </>
@@ -355,11 +355,11 @@ export default function Media() {
 
                 {/* Premium Subscription CTA */}
                 {item.isPremium && user?.tier === 'free' && (
-                  <div className="mt-3 p-3 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 border border-yellow-400/30 rounded-lg">
-                    <p className="text-yellow-400 text-xs mb-2">Premium content - Subscribe to unlock</p>
+                  <div className="mt-3 p-3 bg-brand-accent/20 border border-brand-accent/30 rounded-lg">
+                    <p className="text-brand-accent text-xs mb-2">Premium content - Subscribe to unlock</p>
                     <button
                       onClick={() => handleSubscribe(item.creator)}
-                      className="w-full py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold rounded"
+                      className="w-full py-1 bg-brand-accent text-brand-text text-xs font-bold rounded"
                     >
                       Subscribe Now
                     </button>
@@ -373,15 +373,15 @@ export default function Media() {
         {/* Empty State */}
         {mediaContent[activeTab as keyof typeof mediaContent]?.length === 0 && (
           <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
+            <div className="text-brand-secondary mb-4">
               {activeTab === 'stream' && <Play className="w-16 h-16 mx-auto mb-4" />}
               {activeTab === 'listen' && <Headphones className="w-16 h-16 mx-auto mb-4" />}
               {activeTab === 'blog' && <Rss className="w-16 h-16 mx-auto mb-4" />}
               {activeTab === 'gallery' && <Image className="w-16 h-16 mx-auto mb-4" />}
               {activeTab === 'resources' && <ShoppingBag className="w-16 h-16 mx-auto mb-4" />}
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">No content available</h3>
-            <p className="text-gray-400">Check back later for new {activeTab} content!</p>
+            <h3 className="text-xl font-semibold text-brand-text mb-2">No content available</h3>
+            <p className="text-brand-secondary">Check back later for new {activeTab} content!</p>
           </div>
         )}
       </div>

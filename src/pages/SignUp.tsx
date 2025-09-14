@@ -50,17 +50,17 @@ export default function SignUp() {
   return (
     <div className="min-h-screen pt-20 pb-12 px-4">
       <div className="max-w-2xl mx-auto">
-        <div className="bg-brand-mid border border-brand-light rounded-3xl p-8 md:p-12">
+        <div className="glass-effect rounded-3xl p-8 md:p-12">
           <div className="text-center mb-8">
-            <Crown className="w-16 h-16 text-brand-accent mx-auto mb-4" />
-            <h1 className="text-3xl font-playfair font-bold text-brand-text mb-2">Join FlourishTalents</h1>
-            <p className="text-brand-secondary">Create your account and start your journey</p>
+            <Crown className="w-16 h-16 text-rose-400 mx-auto mb-4" />
+            <h1 className="text-3xl font-playfair font-bold text-white mb-2">Join FlourishTalents</h1>
+            <p className="text-gray-300">Create your account and start your journey</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Account Type Selection */}
             <div>
-              <label className="block text-sm font-medium text-brand-text mb-4">Choose Account Type</label>
+              <label className="block text-sm font-medium text-white mb-4">Choose Account Type</label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {accountTypes.map((type) => (
                   <button
@@ -69,15 +69,15 @@ export default function SignUp() {
                     onClick={() => setFormData({ ...formData, accountType: type.type as any })}
                     className={`p-4 rounded-xl border-2 transition-all duration-300 ${
                       formData.accountType === type.type
-                        ? 'border-brand-accent bg-brand-accent/10'
-                        : 'border-brand-light hover:border-brand-light'
+                        ? 'border-rose-400 bg-rose-400/10'
+                        : 'border-white/20 hover:border-white/40'
                     }`}
                   >
-                    <div className={`${formData.accountType === type.type ? 'text-brand-accent' : 'text-brand-secondary'} mb-2`}>
+                    <div className={`${formData.accountType === type.type ? 'text-rose-400' : 'text-gray-400'} mb-2`}>
                       {type.icon}
                     </div>
-                    <h3 className="font-semibold text-brand-text text-sm">{type.title}</h3>
-                    <p className="text-xs text-brand-secondary mt-1">{type.description}</p>
+                    <h3 className="font-semibold text-white text-sm">{type.title}</h3>
+                    <p className="text-xs text-gray-400 mt-1">{type.description}</p>
                   </button>
                 ))}
               </div>
@@ -85,11 +85,11 @@ export default function SignUp() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-brand-text mb-2">Full Name</label>
+                <label className="block text-sm font-medium text-white mb-2">Full Name</label>
                 <input
                   type="text"
                   required
-                  className="w-full px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 glass-effect rounded-lg border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
                   placeholder="Enter your full name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -97,11 +97,11 @@ export default function SignUp() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-brand-text mb-2">Email</label>
+                <label className="block text-sm font-medium text-white mb-2">Email</label>
                 <input
                   type="email"
                   required
-                  className="w-full px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 glass-effect rounded-lg border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -111,12 +111,12 @@ export default function SignUp() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-brand-text mb-2">Password</label>
+                <label className="block text-sm font-medium text-white mb-2">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? 'text' : 'password'}
                     required
-                    className="w-full px-4 py-3 pr-12 bg-brand-dark border border-brand-light rounded-lg text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 pr-12 glass-effect rounded-lg border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
                     placeholder="Create password"
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -124,7 +124,7 @@ export default function SignUp() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-brand-secondary hover:text-brand-text transition-colors"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                   >
                     {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -132,12 +132,12 @@ export default function SignUp() {
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-brand-text mb-2">Confirm Password</label>
+                <label className="block text-sm font-medium text-white mb-2">Confirm Password</label>
                 <div className="relative">
                   <input
                     type={showConfirmPassword ? 'text' : 'password'}
                     required
-                    className="w-full px-4 py-3 pr-12 bg-brand-dark border border-brand-light rounded-lg text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 pr-12 glass-effect rounded-lg border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
                     placeholder="Confirm password"
                     value={formData.confirmPassword}
                     onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
@@ -145,7 +145,7 @@ export default function SignUp() {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-brand-secondary hover:text-brand-text transition-colors"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                   >
                     {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
@@ -159,26 +159,26 @@ export default function SignUp() {
                 id="agreeTerms"
                 checked={formData.agreeTerms}
                 onChange={(e) => setFormData({ ...formData, agreeTerms: e.target.checked })}
-                className="w-4 h-4 text-brand-accent bg-transparent border-brand-secondary rounded focus:ring-brand-accent"
+                className="w-4 h-4 text-rose-400 bg-transparent border-gray-400 rounded focus:ring-rose-400"
               />
-              <label htmlFor="agreeTerms" className="ml-2 text-sm text-brand-secondary">
-                I agree to the <a href="#" className="text-brand-accent hover:underline">Terms of Service</a> and{' '}
-                <a href="#" className="text-brand-accent hover:underline">Privacy Policy</a>
+              <label htmlFor="agreeTerms" className="ml-2 text-sm text-gray-300">
+                I agree to the <a href="#" className="text-rose-400 hover:underline">Terms of Service</a> and{' '}
+                <a href="#" className="text-rose-400 hover:underline">Privacy Policy</a>
               </label>
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="w-full py-4 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               Create Account
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-brand-secondary">
+            <p className="text-gray-300">
               Already have an account?{' '}
-              <Link to="/signin" className="text-brand-accent hover:underline font-medium">
+              <Link to="/signin" className="text-rose-400 hover:underline font-medium">
                 Sign In
               </Link>
             </p>

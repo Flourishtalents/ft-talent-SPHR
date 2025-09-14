@@ -22,20 +22,20 @@ export default function SignIn() {
   return (
     <div className="min-h-screen pt-20 pb-12 px-4 flex items-center">
       <div className="max-w-md mx-auto w-full">
-        <div className="bg-brand-mid border border-brand-light rounded-3xl p-8 md:p-10">
+        <div className="glass-effect rounded-3xl p-8 md:p-10">
           <div className="text-center mb-8">
-            <Crown className="w-16 h-16 text-brand-accent mx-auto mb-4" />
-            <h1 className="text-3xl font-playfair font-bold text-brand-text mb-2">Welcome Back</h1>
-            <p className="text-brand-secondary">Sign in to continue your journey</p>
+            <Crown className="w-16 h-16 text-rose-400 mx-auto mb-4" />
+            <h1 className="text-3xl font-playfair font-bold text-white mb-2">Welcome Back</h1>
+            <p className="text-gray-300">Sign in to continue your journey</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-brand-text mb-2">Email</label>
+              <label className="block text-sm font-medium text-white mb-2">Email</label>
               <input
                 type="email"
                 required
-                className="w-full px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+                className="w-full px-4 py-3 glass-effect rounded-lg border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -43,12 +43,12 @@ export default function SignIn() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-brand-text mb-2">Password</label>
+              <label className="block text-sm font-medium text-white mb-2">Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
-                  className="w-full px-4 py-3 pr-12 bg-brand-dark border border-brand-light rounded-lg text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 pr-12 glass-effect rounded-lg border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
                   placeholder="Enter your password"
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
@@ -56,7 +56,7 @@ export default function SignIn() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-brand-secondary hover:text-brand-text transition-colors"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -70,29 +70,29 @@ export default function SignIn() {
                   id="rememberMe"
                   checked={formData.rememberMe}
                   onChange={(e) => setFormData({ ...formData, rememberMe: e.target.checked })}
-                  className="w-4 h-4 text-brand-accent bg-transparent border-brand-secondary rounded focus:ring-brand-accent"
+                  className="w-4 h-4 text-rose-400 bg-transparent border-gray-400 rounded focus:ring-rose-400"
                 />
-                <label htmlFor="rememberMe" className="ml-2 text-sm text-brand-secondary">
+                <label htmlFor="rememberMe" className="ml-2 text-sm text-gray-300">
                   Remember me
                 </label>
               </div>
-              <a href="#" className="text-sm text-brand-accent hover:underline">
+              <a href="#" className="text-sm text-rose-400 hover:underline">
                 Forgot password?
               </a>
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="w-full py-4 bg-gradient-to-r from-rose-500 to-purple-600 text-white font-semibold rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               Sign In
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-brand-secondary">
+            <p className="text-gray-300">
               Don't have an account?{' '}
-              <Link to="/signup" className="text-brand-accent hover:underline font-medium">
+              <Link to="/signup" className="text-rose-400 hover:underline font-medium">
                 Sign Up
               </Link>
             </p>

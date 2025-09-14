@@ -112,17 +112,17 @@ export default function Portfolio() {
         {/* Header Controls */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-4xl font-playfair font-bold text-white mb-2">My Highlights</h1>
-            <p className="text-gray-300">Showcase your talent to the world</p>
+            <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">My Highlights</h1>
+            <p className="text-brand-secondary">Showcase your talent to the world</p>
           </div>
           
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-2">
-              <span className="text-gray-300">Public</span>
+              <span className="text-brand-secondary">Public</span>
               <button
                 onClick={() => setIsPublic(!isPublic)}
                 className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                  isPublic ? 'bg-rose-500' : 'bg-gray-600'
+                  isPublic ? 'bg-brand-accent' : 'bg-brand-light'
                 }`}
                 disabled={user?.tier === 'free'}
               >
@@ -133,7 +133,7 @@ export default function Portfolio() {
                 />
               </button>
               {user?.tier === 'free' && (
-                <span className="text-yellow-400 text-sm">Premium required</span>
+                <span className="text-brand-accent text-sm">Premium required</span>
               )}
             </div>
             
@@ -142,7 +142,7 @@ export default function Portfolio() {
               className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                 isEditing
                   ? 'bg-green-500 hover:bg-green-600 text-white'
-                  : 'bg-gradient-to-r from-rose-500 to-purple-600 hover:shadow-xl text-white'
+                  : 'bg-brand-accent hover:shadow-xl text-brand-text'
               }`}
             >
               {isEditing ? (
@@ -162,12 +162,12 @@ export default function Portfolio() {
 
         {/* Cover Image */}
         <div className="relative mb-8">
-          <div className="h-64 bg-gradient-to-r from-rose-400 via-purple-500 to-pink-500 rounded-2xl overflow-hidden">
+          <div className="h-64 bg-brand-accent rounded-2xl overflow-hidden">
             {portfolioData.coverImage ? (
               <img src={portfolioData.coverImage} alt="Cover" className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center text-white">
+                <div className="text-center text-brand-text">
                   <Camera className="w-12 h-12 mx-auto mb-2 opacity-50" />
                   <p className="opacity-75">Add cover image</p>
                 </div>
@@ -176,7 +176,7 @@ export default function Portfolio() {
           </div>
           
           {isEditing && (
-            <button className="absolute top-4 right-4 p-2 bg-black/50 rounded-lg text-white hover:bg-black/70 transition-colors">
+            <button className="absolute top-4 right-4 p-2 bg-brand-dark/50 rounded-lg text-brand-text hover:bg-brand-dark/70 transition-colors">
               <Upload className="w-5 h-5" />
             </button>
           )}
@@ -186,77 +186,77 @@ export default function Portfolio() {
           {/* Left Column - Profile Info */}
           <div className="space-y-6">
             {/* Profile Image & Basic Info */}
-            <div className="glass-effect p-6 rounded-2xl">
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
               <div className="text-center mb-6">
                 <div className="relative inline-block">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-r from-rose-400 to-purple-500 p-1">
-                    <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden">
+                  <div className="w-32 h-32 rounded-full bg-brand-accent p-1">
+                    <div className="w-full h-full rounded-full bg-brand-dark flex items-center justify-center overflow-hidden">
                       {portfolioData.profileImage ? (
                         <img src={portfolioData.profileImage} alt="Profile" className="w-full h-full object-cover" />
                       ) : (
-                        <Camera className="w-8 h-8 text-gray-400" />
+                        <Camera className="w-8 h-8 text-brand-secondary" />
                       )}
                     </div>
                   </div>
                   {isEditing && (
-                    <button className="absolute bottom-0 right-0 p-2 bg-rose-500 rounded-full text-white hover:bg-rose-600 transition-colors">
+                    <button className="absolute bottom-0 right-0 p-2 bg-brand-accent rounded-full text-brand-text hover:bg-brand-accent/80 transition-colors">
                       <Upload className="w-4 h-4" />
                     </button>
                   )}
                 </div>
                 
-                <h2 className="text-2xl font-bold text-white mt-4">{user?.name}</h2>
+                <h2 className="text-2xl font-bold text-brand-text mt-4">{user?.name}</h2>
                 <div className="flex items-center justify-center space-x-1 mt-2">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-4 h-4 text-brand-accent fill-current" />
                   ))}
-                  <span className="text-gray-300 ml-2">4.9 (127 reviews)</span>
+                  <span className="text-brand-secondary ml-2">4.9 (127 reviews)</span>
                 </div>
               </div>
 
               {/* Contact Info */}
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <MapPin className="w-4 h-4 text-rose-400" />
+                <div className="flex items-center space-x-3 text-brand-secondary">
+                  <MapPin className="w-4 h-4 text-brand-accent" />
                   {isEditing ? (
                     <input
                       type="text"
                       value={portfolioData.location}
                       onChange={(e) => setPortfolioData({...portfolioData, location: e.target.value})}
-                      className="bg-transparent border-b border-gray-600 focus:border-rose-400 outline-none flex-1"
+                      className="bg-transparent border-b border-brand-light focus:border-brand-accent outline-none flex-1"
                     />
                   ) : (
                     <span>{portfolioData.location}</span>
                   )}
                 </div>
                 
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <Phone className="w-4 h-4 text-rose-400" />
+                <div className="flex items-center space-x-3 text-brand-secondary">
+                  <Phone className="w-4 h-4 text-brand-accent" />
                   {isEditing ? (
                     <input
                       type="text"
                       value={portfolioData.phone}
                       onChange={(e) => setPortfolioData({...portfolioData, phone: e.target.value})}
-                      className="bg-transparent border-b border-gray-600 focus:border-rose-400 outline-none flex-1"
+                      className="bg-transparent border-b border-brand-light focus:border-brand-accent outline-none flex-1"
                     />
                   ) : (
                     <span>{portfolioData.phone}</span>
                   )}
                 </div>
                 
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <Mail className="w-4 h-4 text-rose-400" />
+                <div className="flex items-center space-x-3 text-brand-secondary">
+                  <Mail className="w-4 h-4 text-brand-accent" />
                   <span>{portfolioData.email}</span>
                 </div>
                 
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <Globe className="w-4 h-4 text-rose-400" />
+                <div className="flex items-center space-x-3 text-brand-secondary">
+                  <Globe className="w-4 h-4 text-brand-accent" />
                   {isEditing ? (
                     <input
                       type="text"
                       value={portfolioData.website}
                       onChange={(e) => setPortfolioData({...portfolioData, website: e.target.value})}
-                      className="bg-transparent border-b border-gray-600 focus:border-rose-400 outline-none flex-1"
+                      className="bg-transparent border-b border-brand-light focus:border-brand-accent outline-none flex-1"
                     />
                   ) : (
                     <span>{portfolioData.website}</span>
@@ -265,26 +265,26 @@ export default function Portfolio() {
               </div>
 
               {/* Social Media */}
-              <div className="mt-6 pt-6 border-t border-gray-700">
-                <h3 className="text-white font-semibold mb-3">Social Media</h3>
+              <div className="mt-6 pt-6 border-t border-brand-light">
+                <h3 className="text-brand-text font-semibold mb-3">Social Media</h3>
                 <div className="flex space-x-3">
-                  <Instagram className="w-5 h-5 text-pink-400 hover:text-pink-300 cursor-pointer" />
-                  <Twitter className="w-5 h-5 text-blue-400 hover:text-blue-300 cursor-pointer" />
-                  <Linkedin className="w-5 h-5 text-blue-600 hover:text-blue-500 cursor-pointer" />
+                  <Instagram className="w-5 h-5 text-brand-accent hover:text-brand-accent/80 cursor-pointer" />
+                  <Twitter className="w-5 h-5 text-brand-accent hover:text-brand-accent/80 cursor-pointer" />
+                  <Linkedin className="w-5 h-5 text-brand-accent hover:text-brand-accent/80 cursor-pointer" />
                 </div>
               </div>
             </div>
 
             {/* Awards & Recognitions */}
-            <div className="glass-effect p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Awards & Recognitions</h3>
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-brand-text mb-4">Awards & Recognitions</h3>
               <div className="space-y-3">
                 {portfolioData.awards.map((award, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <Award className="w-5 h-5 text-yellow-400 mt-1" />
+                    <Award className="w-5 h-5 text-brand-accent mt-1" />
                     <div>
-                      <div className="text-white font-medium">{award.name}</div>
-                      <div className="text-gray-400 text-sm">{award.issuer} • {award.year}</div>
+                      <div className="text-brand-text font-medium">{award.name}</div>
+                      <div className="text-brand-secondary text-sm">{award.issuer} • {award.year}</div>
                     </div>
                   </div>
                 ))}
@@ -292,15 +292,15 @@ export default function Portfolio() {
             </div>
 
             {/* Interviews & Features */}
-            <div className="glass-effect p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Interviews & Features</h3>
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-brand-text mb-4">Interviews & Features</h3>
               <div className="space-y-3">
                 {portfolioData.interviews.map((interview, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <Mic className="w-5 h-5 text-blue-400 mt-1" />
+                    <Mic className="w-5 h-5 text-brand-accent mt-1" />
                     <div>
-                      <div className="text-white font-medium">{interview.title}</div>
-                      <div className="text-gray-400 text-sm">{interview.platform} • {new Date(interview.date).toLocaleDateString()}</div>
+                      <div className="text-brand-text font-medium">{interview.title}</div>
+                      <div className="text-brand-secondary text-sm">{interview.platform} • {new Date(interview.date).toLocaleDateString()}</div>
                     </div>
                   </div>
                 ))}
@@ -308,13 +308,13 @@ export default function Portfolio() {
             </div>
 
             {/* Skills */}
-            <div className="glass-effect p-6 rounded-2xl">
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-semibold text-white">Skills</h3>
+                <h3 className="text-xl font-semibold text-brand-text">Skills</h3>
                 {isEditing && (
                   <button
                     onClick={addSkill}
-                    className="p-1 text-rose-400 hover:text-rose-300"
+                    className="p-1 text-brand-accent hover:text-brand-accent/80"
                   >
                     <Plus className="w-4 h-4" />
                   </button>
@@ -323,7 +323,7 @@ export default function Portfolio() {
               <div className="flex flex-wrap gap-2">
                 {portfolioData.skills.map((skill, index) => (
                   <div key={index} className="relative group">
-                    <span className="px-3 py-1 bg-gradient-to-r from-rose-400/20 to-purple-500/20 text-rose-300 rounded-full text-sm border border-rose-400/30">
+                    <span className="px-3 py-1 bg-brand-accent/20 text-brand-accent/80 rounded-full text-sm border border-brand-accent/30">
                       {skill}
                     </span>
                     {isEditing && (
@@ -340,15 +340,15 @@ export default function Portfolio() {
             </div>
 
             {/* Certifications */}
-            <div className="glass-effect p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Certifications</h3>
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-brand-text mb-4">Certifications</h3>
               <div className="space-y-3">
                 {portfolioData.certifications.map((cert, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <Award className="w-5 h-5 text-yellow-400 mt-1" />
+                    <Award className="w-5 h-5 text-brand-accent mt-1" />
                     <div>
-                      <div className="text-white font-medium">{cert.name}</div>
-                      <div className="text-gray-400 text-sm">{cert.issuer} • {cert.year}</div>
+                      <div className="text-brand-text font-medium">{cert.name}</div>
+                      <div className="text-brand-secondary text-sm">{cert.issuer} • {cert.year}</div>
                     </div>
                   </div>
                 ))}
@@ -359,26 +359,26 @@ export default function Portfolio() {
           {/* Right Column - Portfolio Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Bio */}
-            <div className="glass-effect p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">About Me</h3>
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-brand-text mb-4">About Me</h3>
               {isEditing ? (
                 <textarea
                   value={portfolioData.bio}
                   onChange={(e) => setPortfolioData({...portfolioData, bio: e.target.value})}
-                  className="w-full h-24 bg-transparent border border-gray-600 rounded-lg p-3 text-white resize-none focus:border-rose-400 outline-none"
+                  className="w-full h-24 bg-transparent border border-brand-light rounded-lg p-3 text-brand-text resize-none focus:border-brand-accent outline-none"
                   placeholder="Tell your story..."
                 />
               ) : (
-                <p className="text-gray-300 leading-relaxed">{portfolioData.bio}</p>
+                <p className="text-brand-secondary leading-relaxed">{portfolioData.bio}</p>
               )}
             </div>
 
             {/* Highlights */}
-            <div className="glass-effect p-6 rounded-2xl">
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-semibold text-white">Highlights</h3>
+                <h3 className="text-xl font-semibold text-brand-text">Highlights</h3>
                 {isEditing && (
-                  <button className="px-4 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all">
+                  <button className="px-4 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all">
                     <Plus className="w-4 h-4 mr-2 inline" />
                     Add Work
                   </button>
@@ -388,20 +388,20 @@ export default function Portfolio() {
               <div className="grid md:grid-cols-2 gap-6">
                 {portfolioData.portfolio.map((item) => (
                   <div key={item.id} className="group relative">
-                    <div className="aspect-video bg-gray-800 rounded-xl overflow-hidden">
+                    <div className="aspect-video bg-brand-dark rounded-xl overflow-hidden">
                       <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <button
                           onClick={() => handleSendToMedia(item)}
-                          className="px-4 py-2 bg-rose-500 text-white rounded-lg hover:bg-rose-600 transition-colors"
+                          className="px-4 py-2 bg-brand-accent text-brand-text rounded-lg hover:bg-brand-accent/80 transition-colors"
                         >
                           Send to Media
                         </button>
                       </div>
                     </div>
                     <div className="mt-3">
-                      <h4 className="text-white font-medium">{item.title}</h4>
-                      <p className="text-gray-400 text-sm">{item.description}</p>
+                      <h4 className="text-brand-text font-medium">{item.title}</h4>
+                      <p className="text-brand-secondary text-sm">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -409,34 +409,34 @@ export default function Portfolio() {
             </div>
 
             {/* Experience */}
-            <div className="glass-effect p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Experience</h3>
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-brand-text mb-4">Experience</h3>
               <div className="space-y-4">
                 {portfolioData.experience.map((exp, index) => (
-                  <div key={index} className="border-l-2 border-rose-400 pl-4">
-                    <h4 className="text-white font-semibold">{exp.title}</h4>
-                    <div className="text-rose-400 text-sm">{exp.company} • {exp.period}</div>
-                    <p className="text-gray-300 text-sm mt-2">{exp.description}</p>
+                  <div key={index} className="border-l-2 border-brand-accent pl-4">
+                    <h4 className="text-brand-text font-semibold">{exp.title}</h4>
+                    <div className="text-brand-accent text-sm">{exp.company} • {exp.period}</div>
+                    <p className="text-brand-secondary text-sm mt-2">{exp.description}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Testimonials */}
-            <div className="glass-effect p-6 rounded-2xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Client Testimonials</h3>
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl">
+              <h3 className="text-xl font-semibold text-brand-text mb-4">Client Testimonials</h3>
               <div className="space-y-4">
                 {portfolioData.testimonials.map((testimonial, index) => (
-                  <div key={index} className="bg-white/5 p-4 rounded-lg">
+                  <div key={index} className="bg-brand-light/10 p-4 rounded-lg">
                     <div className="flex items-center space-x-1 mb-2">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                        <Star key={i} className="w-4 h-4 text-brand-accent fill-current" />
                       ))}
                     </div>
-                    <p className="text-gray-300 italic mb-2">"{testimonial.comment}"</p>
+                    <p className="text-brand-secondary italic mb-2">"{testimonial.comment}"</p>
                     <div className="text-sm">
-                      <span className="text-white font-medium">{testimonial.client}</span>
-                      <span className="text-gray-400"> - {testimonial.company}</span>
+                      <span className="text-brand-text font-medium">{testimonial.client}</span>
+                      <span className="text-brand-secondary"> - {testimonial.company}</span>
                     </div>
                   </div>
                 ))}
@@ -448,21 +448,21 @@ export default function Portfolio() {
         {/* Send to Media Modal */}
         {showMediaModal && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="glass-effect p-6 rounded-2xl max-w-md w-full">
-              <h3 className="text-xl font-semibold text-white mb-4">Send to Media</h3>
-              <p className="text-gray-300 mb-4">
+            <div className="bg-brand-mid border border-brand-light p-6 rounded-2xl max-w-md w-full">
+              <h3 className="text-xl font-semibold text-brand-text mb-4">Send to Media</h3>
+              <p className="text-brand-secondary mb-4">
                 Send "{selectedContent?.title}" to the Media section for admin review?
               </p>
               <div className="flex space-x-3">
                 <button
                   onClick={confirmSendToMedia}
-                  className="flex-1 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                  className="flex-1 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all"
                 >
                   Send for Review
                 </button>
                 <button
                   onClick={() => setShowMediaModal(false)}
-                  className="flex-1 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                  className="flex-1 py-2 bg-brand-light text-brand-text rounded-lg hover:bg-brand-light/80 transition-colors"
                 >
                   Cancel
                 </button>

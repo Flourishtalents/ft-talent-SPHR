@@ -79,35 +79,35 @@ export default function Profile() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-white mb-2">Profile Settings</h1>
-          <p className="text-gray-300">Manage your account and preferences</p>
+          <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">Profile Settings</h1>
+          <p className="text-brand-secondary">Manage your account and preferences</p>
         </div>
 
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="glass-effect rounded-2xl p-6 sticky top-24">
+            <div className="bg-brand-mid border border-brand-light rounded-2xl p-6 sticky top-24">
               {/* Profile Summary */}
               <div className="text-center mb-6">
                 <div className="relative inline-block mb-4">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-r from-rose-400 to-purple-500 p-1">
-                    <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center overflow-hidden">
+                  <div className="w-20 h-20 rounded-full bg-brand-accent p-1">
+                    <div className="w-full h-full rounded-full bg-brand-dark flex items-center justify-center overflow-hidden">
                       {user?.profileImage ? (
                         <img src={user.profileImage} alt="Profile" className="w-full h-full object-cover" />
                       ) : (
-                        <User className="w-8 h-8 text-gray-400" />
+                        <User className="w-8 h-8 text-brand-secondary" />
                       )}
                     </div>
                   </div>
-                  <button className="absolute bottom-0 right-0 p-1 bg-rose-500 rounded-full text-white hover:bg-rose-600 transition-colors">
+                  <button className="absolute bottom-0 right-0 p-1 bg-brand-accent rounded-full text-brand-text hover:bg-brand-accent/80 transition-colors">
                     <Camera className="w-3 h-3" />
                   </button>
                 </div>
                 
-                <h3 className="text-lg font-semibold text-white">{user?.name}</h3>
-                <div className={`inline-flex items-center space-x-1 px-3 py-1 rounded-full text-sm bg-gradient-to-r ${getTierColor(user?.tier || 'free')}`}>
-                  <Crown className="w-3 h-3 text-white" />
-                  <span className="text-white font-medium capitalize">{user?.tier}</span>
+                <h3 className="text-lg font-semibold text-brand-text">{user?.name}</h3>
+                <div className={`inline-flex items-center space-x-1 px-3 py-1 rounded-full text-sm bg-brand-accent`}>
+                  <Crown className="w-3 h-3 text-brand-text" />
+                  <span className="text-brand-text font-medium capitalize">{user?.tier}</span>
                 </div>
               </div>
 
@@ -119,8 +119,8 @@ export default function Profile() {
                     onClick={() => setActiveTab(tab.id)}
                     className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all ${
                       activeTab === tab.id
-                        ? 'bg-gradient-to-r from-rose-500 to-purple-600 text-white'
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                        ? 'bg-brand-accent text-brand-text'
+                        : 'text-brand-secondary hover:text-brand-text hover:bg-brand-light/20'
                     }`}
                   >
                     {tab.icon}
@@ -136,15 +136,15 @@ export default function Profile() {
             {activeTab === 'profile' && (
               <div className="space-y-6">
                 {/* Profile Information */}
-                <div className="glass-effect rounded-2xl p-6">
+                <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
                   <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-semibold text-white">Profile Information</h2>
+                    <h2 className="text-2xl font-semibold text-brand-text">Profile Information</h2>
                     <button
                       onClick={isEditing ? handleSave : () => setIsEditing(true)}
                       className={`px-4 py-2 rounded-lg font-medium transition-all ${
                         isEditing
                           ? 'bg-green-500 hover:bg-green-600 text-white'
-                          : 'bg-gradient-to-r from-rose-500 to-purple-600 text-white hover:shadow-lg'
+                          : 'bg-brand-accent text-brand-text hover:shadow-lg'
                       }`}
                     >
                       {isEditing ? (
@@ -163,78 +163,78 @@ export default function Profile() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-white mb-2">Full Name</label>
+                      <label className="block text-sm font-medium text-brand-text mb-2">Full Name</label>
                       {isEditing ? (
                         <input
                           type="text"
                           value={profileData.name}
                           onChange={(e) => setProfileData({...profileData, name: e.target.value})}
-                          className="w-full px-4 py-3 glass-effect rounded-lg border border-white/20 text-white focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
                         />
                       ) : (
-                        <div className="px-4 py-3 glass-effect rounded-lg text-white">{profileData.name}</div>
+                        <div className="px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text">{profileData.name}</div>
                       )}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-white mb-2">Email</label>
-                      <div className="px-4 py-3 glass-effect rounded-lg text-gray-400">{profileData.email}</div>
+                      <label className="block text-sm font-medium text-brand-text mb-2">Email</label>
+                      <div className="px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-secondary">{profileData.email}</div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-white mb-2">Phone</label>
+                      <label className="block text-sm font-medium text-brand-text mb-2">Phone</label>
                       {isEditing ? (
                         <input
                           type="text"
                           value={profileData.phone}
                           onChange={(e) => setProfileData({...profileData, phone: e.target.value})}
-                          className="w-full px-4 py-3 glass-effect rounded-lg border border-white/20 text-white focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
                         />
                       ) : (
-                        <div className="px-4 py-3 glass-effect rounded-lg text-white">{profileData.phone}</div>
+                        <div className="px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text">{profileData.phone}</div>
                       )}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-white mb-2">Location</label>
+                      <label className="block text-sm font-medium text-brand-text mb-2">Location</label>
                       {isEditing ? (
                         <input
                           type="text"
                           value={profileData.location}
                           onChange={(e) => setProfileData({...profileData, location: e.target.value})}
-                          className="w-full px-4 py-3 glass-effect rounded-lg border border-white/20 text-white focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
                         />
                       ) : (
-                        <div className="px-4 py-3 glass-effect rounded-lg text-white">{profileData.location}</div>
+                        <div className="px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text">{profileData.location}</div>
                       )}
                     </div>
 
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-white mb-2">Bio</label>
+                      <label className="block text-sm font-medium text-brand-text mb-2">Bio</label>
                       {isEditing ? (
                         <textarea
                           value={profileData.bio}
                           onChange={(e) => setProfileData({...profileData, bio: e.target.value})}
                           rows={4}
-                          className="w-full px-4 py-3 glass-effect rounded-lg border border-white/20 text-white resize-none focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text resize-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
                         />
                       ) : (
-                        <div className="px-4 py-3 glass-effect rounded-lg text-white min-h-[100px]">{profileData.bio}</div>
+                        <div className="px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text min-h-[100px]">{profileData.bio}</div>
                       )}
                     </div>
                   </div>
                 </div>
 
                 {/* Milestones */}
-                <div className="glass-effect rounded-2xl p-6">
-                  <h2 className="text-2xl font-semibold text-white mb-6">Milestones</h2>
+                <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
+                  <h2 className="text-2xl font-semibold text-brand-text mb-6">Milestones</h2>
                   <div className="grid md:grid-cols-2 gap-4">
                     {achievements.map((achievement, index) => (
-                      <div key={index} className="flex items-center space-x-4 p-4 bg-white/5 rounded-lg">
+                      <div key={index} className="flex items-center space-x-4 p-4 bg-brand-light/10 rounded-lg">
                         <div className="text-2xl">{achievement.icon}</div>
                         <div>
-                          <div className="text-white font-medium">{achievement.name}</div>
-                          <div className="text-gray-400 text-sm">{new Date(achievement.date).toLocaleDateString()}</div>
+                          <div className="text-brand-text font-medium">{achievement.name}</div>
+                          <div className="text-brand-secondary text-sm">{new Date(achievement.date).toLocaleDateString()}</div>
                         </div>
                       </div>
                     ))}
@@ -246,17 +246,17 @@ export default function Profile() {
             {activeTab === 'account' && (
               <div className="space-y-6">
                 {/* Account Switcher */}
-                <div className="glass-effect rounded-2xl p-6">
+                <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-xl font-semibold text-white">Account Type</h3>
-                      <p className="text-gray-300">
+                      <h3 className="text-xl font-semibold text-brand-text">Account Type</h3>
+                      <p className="text-brand-secondary">
                         Your current role is: <span className="font-semibold capitalize">{user?.role}</span>
                       </p>
                     </div>
                     <button
                       onClick={switchRole}
-                      className="px-4 py-2 bg-gradient-to-r from-blue-500 to-teal-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center space-x-2"
+                      className="px-4 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all flex items-center space-x-2"
                     >
                       <RefreshCw className="w-4 h-4" />
                       <span>Switch to {user?.role === 'creator' ? 'Member' : 'Creator'}</span>
@@ -265,26 +265,26 @@ export default function Profile() {
                 </div>
 
                 {/* Membership Status */}
-                <div className="glass-effect rounded-2xl p-6">
-                  <h2 className="text-2xl font-semibold text-white mb-6">Membership Status</h2>
+                <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
+                  <h2 className="text-2xl font-semibold text-brand-text mb-6">Membership Status</h2>
                   
-                  <div className={`p-6 rounded-xl bg-gradient-to-r ${getTierColor(user?.tier || 'free')} mb-6`}>
+                  <div className={`p-6 rounded-xl bg-brand-accent mb-6`}>
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-2xl font-bold text-white capitalize">{user?.tier} Member</h3>
-                        <p className="text-white/80">Member since {user?.joinedDate.toLocaleDateString()}</p>
+                        <h3 className="text-2xl font-bold text-brand-text capitalize">{user?.tier} Member</h3>
+                        <p className="text-brand-text/80">Member since {user?.joinedDate.toLocaleDateString()}</p>
                       </div>
-                      <Crown className="w-12 h-12 text-white" />
+                      <Crown className="w-12 h-12 text-brand-text" />
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-white mb-3">Current Benefits</h4>
+                    <h4 className="text-lg font-semibold text-brand-text mb-3">Current Benefits</h4>
                     <div className="grid md:grid-cols-2 gap-2">
                       {getTierBenefits(user?.tier || 'free').map((benefit, index) => (
                         <div key={index} className="flex items-center space-x-2">
                           <Star className="w-4 h-4 text-green-400" />
-                          <span className="text-gray-300">{benefit}</span>
+                          <span className="text-brand-secondary">{benefit}</span>
                         </div>
                       ))}
                     </div>
@@ -293,7 +293,7 @@ export default function Profile() {
                   {user?.tier === 'free' && (
                     <button
                       onClick={handleUpgrade}
-                      className="w-full py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-semibold rounded-xl hover:shadow-xl transition-all"
+                      className="w-full py-3 bg-brand-accent text-brand-text font-semibold rounded-xl hover:shadow-xl transition-all"
                     >
                       Upgrade to Premium
                     </button>
@@ -301,41 +301,41 @@ export default function Profile() {
                 </div>
 
                 {/* Loyalty Points */}
-                <div className="glass-effect rounded-2xl p-6">
-                  <h2 className="text-2xl font-semibold text-white mb-6">Loyalty Points</h2>
+                <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
+                  <h2 className="text-2xl font-semibold text-brand-text mb-6">Loyalty Points</h2>
                   
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <div className="text-3xl font-bold text-yellow-400">{user?.loyaltyPoints || 0}</div>
-                      <div className="text-gray-300">Available Points</div>
+                      <div className="text-3xl font-bold text-brand-accent">{user?.loyaltyPoints || 0}</div>
+                      <div className="text-brand-secondary">Available Points</div>
                     </div>
-                    <Gift className="w-12 h-12 text-yellow-400" />
+                    <Gift className="w-12 h-12 text-brand-accent" />
                   </div>
 
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-300">Next Reward</span>
-                      <span className="text-gray-300">500 points</span>
+                      <span className="text-brand-secondary">Next Reward</span>
+                      <span className="text-brand-secondary">500 points</span>
                     </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
+                    <div className="w-full bg-brand-light rounded-full h-2">
                       <div 
-                        className="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full transition-all duration-300"
+                        className="bg-brand-accent h-2 rounded-full transition-all duration-300"
                         style={{ width: `${((user?.loyaltyPoints || 0) / 500) * 100}%` }}
                       />
                     </div>
                   </div>
 
-                  <button className="w-full py-3 glass-effect text-white rounded-xl hover:bg-white/10 transition-colors">
+                  <button className="w-full py-3 bg-brand-light/10 text-brand-text rounded-xl hover:bg-brand-light/20 transition-colors">
                     View Rewards Catalog
                   </button>
                 </div>
 
                 {/* Referral Program */}
-                <div className="glass-effect rounded-2xl p-6">
-                  <h2 className="text-2xl font-semibold text-white mb-6">Referral Program</h2>
+                <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
+                  <h2 className="text-2xl font-semibold text-brand-text mb-6">Referral Program</h2>
                   
                   <div className="mb-6">
-                    <p className="text-gray-300 mb-4">
+                    <p className="text-brand-secondary mb-4">
                       Invite friends and earn 100 loyalty points for each successful referral!
                     </p>
                     
@@ -344,9 +344,9 @@ export default function Profile() {
                         type="text"
                         value={generateReferralCode()}
                         readOnly
-                        className="flex-1 px-4 py-3 glass-effect rounded-lg text-white border border-white/20"
+                        className="flex-1 px-4 py-3 bg-brand-dark border border-brand-light rounded-lg text-brand-text"
                       />
-                      <button className="px-6 py-3 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all">
+                      <button className="px-6 py-3 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all">
                         <Share2 className="w-4 h-4 mr-2 inline" />
                         Share
                       </button>
@@ -355,16 +355,16 @@ export default function Profile() {
 
                   <div className="grid grid-cols-3 gap-4 text-center">
                     <div>
-                      <div className="text-2xl font-bold text-white">12</div>
-                      <div className="text-gray-400 text-sm">Invites Sent</div>
+                      <div className="text-2xl font-bold text-brand-text">12</div>
+                      <div className="text-brand-secondary text-sm">Invites Sent</div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold text-green-400">8</div>
-                      <div className="text-gray-400 text-sm">Successful</div>
+                      <div className="text-brand-secondary text-sm">Successful</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-yellow-400">800</div>
-                      <div className="text-gray-400 text-sm">Points Earned</div>
+                      <div className="text-2xl font-bold text-brand-accent">800</div>
+                      <div className="text-brand-secondary text-sm">Points Earned</div>
                     </div>
                   </div>
                 </div>
@@ -372,19 +372,19 @@ export default function Profile() {
             )}
 
             {activeTab === 'privacy' && (
-              <div className="glass-effect rounded-2xl p-6">
-                <h2 className="text-2xl font-semibold text-white mb-6">Privacy Settings</h2>
+              <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
+                <h2 className="text-2xl font-semibold text-brand-text mb-6">Privacy Settings</h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-white font-medium">Public Portfolio</h3>
-                      <p className="text-gray-400 text-sm">Allow others to view your portfolio</p>
+                      <h3 className="text-brand-text font-medium">Public Portfolio</h3>
+                      <p className="text-brand-secondary text-sm">Allow others to view your portfolio</p>
                     </div>
                     <button
                       onClick={() => setPreferences({...preferences, portfolioPublic: !preferences.portfolioPublic})}
                       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        preferences.portfolioPublic ? 'bg-rose-500' : 'bg-gray-600'
+                        preferences.portfolioPublic ? 'bg-brand-accent' : 'bg-brand-light'
                       }`}
                     >
                       <span
@@ -397,13 +397,13 @@ export default function Profile() {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-white font-medium">Show Contact Information</h3>
-                      <p className="text-gray-400 text-sm">Display your contact details on your profile</p>
+                      <h3 className="text-brand-text font-medium">Show Contact Information</h3>
+                      <p className="text-brand-secondary text-sm">Display your contact details on your profile</p>
                     </div>
                     <button
                       onClick={() => setPreferences({...preferences, showContactInfo: !preferences.showContactInfo})}
                       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        preferences.showContactInfo ? 'bg-rose-500' : 'bg-gray-600'
+                        preferences.showContactInfo ? 'bg-brand-accent' : 'bg-brand-light'
                       }`}
                     >
                       <span
@@ -418,19 +418,19 @@ export default function Profile() {
             )}
 
             {activeTab === 'notifications' && (
-              <div className="glass-effect rounded-2xl p-6">
-                <h2 className="text-2xl font-semibold text-white mb-6">Notification Preferences</h2>
+              <div className="bg-brand-mid border border-brand-light rounded-2xl p-6">
+                <h2 className="text-2xl font-semibold text-brand-text mb-6">Notification Preferences</h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-white font-medium">Email Notifications</h3>
-                      <p className="text-gray-400 text-sm">Receive important updates via email</p>
+                      <h3 className="text-brand-text font-medium">Email Notifications</h3>
+                      <p className="text-brand-secondary text-sm">Receive important updates via email</p>
                     </div>
                     <button
                       onClick={() => setPreferences({...preferences, emailNotifications: !preferences.emailNotifications})}
                       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        preferences.emailNotifications ? 'bg-rose-500' : 'bg-gray-600'
+                        preferences.emailNotifications ? 'bg-brand-accent' : 'bg-brand-light'
                       }`}
                     >
                       <span
@@ -443,13 +443,13 @@ export default function Profile() {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-white font-medium">Push Notifications</h3>
-                      <p className="text-gray-400 text-sm">Get instant notifications on your device</p>
+                      <h3 className="text-brand-text font-medium">Push Notifications</h3>
+                      <p className="text-brand-secondary text-sm">Get instant notifications on your device</p>
                     </div>
                     <button
                       onClick={() => setPreferences({...preferences, pushNotifications: !preferences.pushNotifications})}
                       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        preferences.pushNotifications ? 'bg-rose-500' : 'bg-gray-600'
+                        preferences.pushNotifications ? 'bg-brand-accent' : 'bg-brand-light'
                       }`}
                     >
                       <span
@@ -462,13 +462,13 @@ export default function Profile() {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-white font-medium">Marketing Emails</h3>
-                      <p className="text-gray-400 text-sm">Receive promotional content and offers</p>
+                      <h3 className="text-brand-text font-medium">Marketing Emails</h3>
+                      <p className="text-brand-secondary text-sm">Receive promotional content and offers</p>
                     </div>
                     <button
                       onClick={() => setPreferences({...preferences, marketingEmails: !preferences.marketingEmails})}
                       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        preferences.marketingEmails ? 'bg-rose-500' : 'bg-gray-600'
+                        preferences.marketingEmails ? 'bg-brand-accent' : 'bg-brand-light'
                       }`}
                     >
                       <span
@@ -481,13 +481,13 @@ export default function Profile() {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-white font-medium">Event Reminders</h3>
-                      <p className="text-gray-400 text-sm">Get notified about upcoming events</p>
+                      <h3 className="text-brand-text font-medium">Event Reminders</h3>
+                      <p className="text-brand-secondary text-sm">Get notified about upcoming events</p>
                     </div>
                     <button
                       onClick={() => setPreferences({...preferences, eventReminders: !preferences.eventReminders})}
                       className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                        preferences.eventReminders ? 'bg-rose-500' : 'bg-gray-600'
+                        preferences.eventReminders ? 'bg-brand-accent' : 'bg-brand-light'
                       }`}
                     >
                       <span

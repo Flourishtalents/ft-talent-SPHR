@@ -204,20 +204,20 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-playfair font-bold text-white mb-2">Projects</h1>
-          <p className="text-gray-300">Find the perfect project or team for your skills</p>
+          <h1 className="text-4xl font-playfair font-bold text-brand-text mb-2">Projects</h1>
+          <p className="text-brand-secondary">Find the perfect project or team for your skills</p>
         </div>
 
         {/* View Toggle and Submit Button */}
         <div className="flex justify-between items-center mb-8">
-          <div className="flex space-x-1 glass-effect p-2 rounded-xl w-fit">
+          <div className="flex space-x-1 bg-brand-mid border border-brand-light p-2 rounded-xl w-fit">
             {user?.role === 'creator' ? (
               <button
                 onClick={() => setViewMode('projects')}
                 className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   viewMode === 'projects'
-                    ? 'bg-gradient-to-r from-rose-500 to-purple-600 text-white shadow-lg'
-                    : 'text-gray-300 hover:text-white hover:bg-white/10'
+                    ? 'bg-brand-accent text-brand-text shadow-lg'
+                    : 'text-brand-secondary hover:text-brand-text hover:bg-brand-light/20'
                 }`}
               >
                 <Briefcase className="w-5 h-5" />
@@ -229,8 +229,8 @@ export default function Projects() {
                   onClick={() => setViewMode('talents')}
                   className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                     viewMode === 'talents'
-                      ? 'bg-gradient-to-r from-rose-500 to-purple-600 text-white shadow-lg'
-                      : 'text-gray-300 hover:text-white hover:bg-white/10'
+                      ? 'bg-brand-accent text-brand-text shadow-lg'
+                      : 'text-brand-secondary hover:text-brand-text hover:bg-brand-light/20'
                   }`}
                 >
                   <Users className="w-5 h-5" />
@@ -240,8 +240,8 @@ export default function Projects() {
                   onClick={() => setViewMode('teams')}
                   className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                     viewMode === 'teams'
-                      ? 'bg-gradient-to-r from-rose-500 to-purple-600 text-white shadow-lg'
-                      : 'text-gray-300 hover:text-white hover:bg-white/10'
+                      ? 'bg-brand-accent text-brand-text shadow-lg'
+                      : 'text-brand-secondary hover:text-brand-text hover:bg-brand-light/20'
                   }`}
                 >
                   <Building className="w-5 h-5" />
@@ -259,7 +259,7 @@ export default function Projects() {
               }
               alert('Project submission feature coming soon!');
             }}
-            className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all">
+            className="px-6 py-3 bg-green-500 text-white font-semibold rounded-xl hover:shadow-xl transition-all">
             Submit a Project
           </button>
         </div>
@@ -267,23 +267,23 @@ export default function Projects() {
         {/* Search and Filters */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="md:col-span-2 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-brand-secondary w-5 h-5" />
             <input
               type="text"
               placeholder={`Search ${viewMode}...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 glass-effect rounded-xl border border-white/20 text-white placeholder-gray-400 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+              className="w-full pl-10 pr-4 py-3 bg-brand-dark border border-brand-light rounded-xl text-brand-text placeholder-brand-secondary focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
             />
           </div>
           
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-4 py-3 glass-effect rounded-xl border border-white/20 text-white bg-transparent focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+            className="px-4 py-3 bg-brand-dark border border-brand-light rounded-xl text-brand-text focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
           >
             {categories.map((category) => (
-              <option key={category} value={category} className="bg-gray-800">
+              <option key={category} value={category} className="bg-brand-dark">
                 {category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
               </option>
             ))}
@@ -293,13 +293,13 @@ export default function Projects() {
             <select
               value={selectedBudget}
               onChange={(e) => setSelectedBudget(e.target.value)}
-              className="px-4 py-3 glass-effect rounded-xl border border-white/20 text-white bg-transparent focus:ring-2 focus:ring-rose-400 focus:border-transparent transition-all"
+              className="px-4 py-3 bg-brand-dark border border-brand-light rounded-xl text-brand-text focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all"
             >
-              <option value="all" className="bg-gray-800">All Budgets</option>
-              <option value="under-500" className="bg-gray-800">Under UGX 190,000/hr</option>
-              <option value="500-1000" className="bg-gray-800">UGX 190,000–380,000/hr</option>
-              <option value="1000-5000" className="bg-gray-800">UGX 380,000–760,000/hr</option>
-              <option value="5000-plus" className="bg-gray-800">UGX 760,000+/hr</option>
+              <option value="all" className="bg-brand-dark">All Budgets</option>
+              <option value="under-500" className="bg-brand-dark">Under UGX 190,000/hr</option>
+              <option value="500-1000" className="bg-brand-dark">UGX 190,000–380,000/hr</option>
+              <option value="1000-5000" className="bg-brand-dark">UGX 380,000–760,000/hr</option>
+              <option value="5000-plus" className="bg-brand-dark">UGX 760,000+/hr</option>
             </select>
           )}
         </div>
@@ -308,28 +308,28 @@ export default function Projects() {
         <div className="grid lg:grid-cols-3 gap-6">
           {viewMode === 'projects' ? (
             filteredProjects.map((project) => (
-              <div key={project.id} className="glass-effect rounded-2xl overflow-hidden hover-lift p-6">
-                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-                <p className="text-gray-400 text-sm">{project.company}</p>
+              <div key={project.id} className="bg-brand-mid border border-brand-light rounded-2xl overflow-hidden hover-lift p-6">
+                <h3 className="text-xl font-semibold text-brand-text">{project.title}</h3>
+                <p className="text-brand-secondary text-sm">{project.company}</p>
                 <div className="flex items-center space-x-2 mt-2">
-                    <MapPin className="w-4 h-4 text-rose-400" />
-                    <span className="text-gray-300 text-sm">{project.location}</span>
+                    <MapPin className="w-4 h-4 text-brand-accent" />
+                    <span className="text-brand-secondary text-sm">{project.location}</span>
                 </div>
-                <p className="text-gray-300 text-sm mt-4 line-clamp-2">{project.description}</p>
+                <p className="text-brand-secondary text-sm mt-4 line-clamp-2">{project.description}</p>
                 <div className="mt-4">
                     <div className="flex flex-wrap gap-1">
                         {project.skills.map((skill, index) => (
-                            <span key={index} className="px-2 py-1 bg-rose-400/20 text-rose-300 text-xs rounded">
+                            <span key={index} className="px-2 py-1 bg-brand-accent/20 text-brand-accent/80 text-xs rounded">
                                 {skill}
                             </span>
                         ))}
                     </div>
                 </div>
                 <div className="flex items-center justify-between mt-4">
-                    <div className="text-lg font-bold text-white">{project.budget}</div>
+                    <div className="text-lg font-bold text-brand-text">{project.budget}</div>
                     <button
                         onClick={() => handleHire(project.id, 'talent')}
-                        className="flex-1 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                        className="flex-1 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all"
                     >
                         Apply Now
                     </button>
@@ -338,7 +338,7 @@ export default function Projects() {
             ))
           ) : viewMode === 'talents' ? (
             filteredTalents.map((talent) => (
-              <div key={talent.id} className="glass-effect rounded-2xl overflow-hidden hover-lift">
+              <div key={talent.id} className="bg-brand-mid border border-brand-light rounded-2xl overflow-hidden hover-lift">
                 {/* Header */}
                 <div className="p-6 pb-4">
                   <div className="flex items-start space-x-4">
@@ -348,13 +348,13 @@ export default function Projects() {
                       className="w-16 h-16 rounded-full object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white">{talent.name}</h3>
-                      <p className="text-gray-400 text-sm">{talent.title}</p>
+                      <h3 className="text-xl font-semibold text-brand-text">{talent.name}</h3>
+                      <p className="text-brand-secondary text-sm">{talent.title}</p>
                       <div className="flex items-center space-x-2 mt-2">
                         <div className="flex items-center space-x-1">
-                          <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                          <span className="text-white text-sm">{talent.rating}</span>
-                          <span className="text-gray-400 text-sm">({talent.reviews})</span>
+                          <Star className="w-4 h-4 text-brand-accent fill-current" />
+                          <span className="text-brand-text text-sm">{talent.rating}</span>
+                          <span className="text-brand-secondary text-sm">({talent.reviews})</span>
                         </div>
                       </div>
                     </div>
@@ -363,23 +363,23 @@ export default function Projects() {
 
                 {/* Details */}
                 <div className="px-6 pb-4">
-                  <p className="text-gray-300 text-sm mb-4 line-clamp-2">{talent.description}</p>
+                  <p className="text-brand-secondary text-sm mb-4 line-clamp-2">{talent.description}</p>
                   
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <MapPin className="w-4 h-4" />
                       <span>{talent.location}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <Clock className="w-4 h-4" />
                       <span>{talent.responseTime}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <Briefcase className="w-4 h-4" />
                       <span>{talent.completedProjects} projects</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <DollarSign className="w-4 h-4" />
                       <span>UGX {talent.hourlyRate.toLocaleString()}/hr</span>
                     </div>
@@ -389,12 +389,12 @@ export default function Projects() {
                   <div className="mb-4">
                     <div className="flex flex-wrap gap-1">
                       {talent.skills.slice(0, 3).map((skill, index) => (
-                        <span key={index} className="px-2 py-1 bg-rose-400/20 text-rose-300 text-xs rounded">
+                        <span key={index} className="px-2 py-1 bg-brand-accent/20 text-brand-accent/80 text-xs rounded">
                           {skill}
                         </span>
                       ))}
                       {talent.skills.length > 3 && (
-                        <span className="px-2 py-1 bg-gray-600 text-gray-300 text-xs rounded">
+                        <span className="px-2 py-1 bg-brand-light text-brand-secondary text-xs rounded">
                           +{talent.skills.length - 3} more
                         </span>
                       )}
@@ -403,12 +403,12 @@ export default function Projects() {
 
                   {/* Certifications */}
                   <div className="mb-4">
-                    <h4 className="text-white text-sm font-medium mb-2">Certifications</h4>
+                    <h4 className="text-brand-text text-sm font-medium mb-2">Certifications</h4>
                     <div className="space-y-1">
                       {talent.certifications.slice(0, 2).map((cert, index) => (
                         <div key={index} className="flex items-center space-x-2">
                           <div className="w-2 h-2 bg-green-400 rounded-full" />
-                          <span className="text-gray-300 text-xs">{cert}</span>
+                          <span className="text-brand-secondary text-xs">{cert}</span>
                         </div>
                       ))}
                     </div>
@@ -420,14 +420,14 @@ export default function Projects() {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleViewPortfolio(talent.id)}
-                      className="flex-1 py-2 glass-effect text-gray-300 hover:text-white rounded-lg transition-colors flex items-center justify-center space-x-2"
+                      className="flex-1 py-2 bg-brand-light/10 text-brand-secondary hover:text-brand-text rounded-lg transition-colors flex items-center justify-center space-x-2"
                     >
                       <Eye className="w-4 h-4" />
                       <span>{user?.role === 'creator' ? 'Send Portfolio' : 'Portfolio'}</span>
                     </button>
                     <button
                       onClick={() => handleHire(talent.id, 'talent')}
-                      className="flex-1 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                      className="flex-1 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all"
                     >
                       {user?.role === 'creator' ? 'Apply' : 'Hire Now'}
                     </button>
@@ -437,7 +437,7 @@ export default function Projects() {
             ))
           ) : (
             filteredTeams.map((team) => (
-              <div key={team.id} className="glass-effect rounded-2xl overflow-hidden hover-lift">
+              <div key={team.id} className="bg-brand-mid border border-brand-light rounded-2xl overflow-hidden hover-lift">
                 {/* Header */}
                 <div className="p-6 pb-4">
                   <div className="flex items-start space-x-4">
@@ -447,13 +447,13 @@ export default function Projects() {
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-white">{team.name}</h3>
-                      <p className="text-gray-400 text-sm">{team.type}</p>
+                      <h3 className="text-xl font-semibold text-brand-text">{team.name}</h3>
+                      <p className="text-brand-secondary text-sm">{team.type}</p>
                       <div className="flex items-center space-x-2 mt-2">
                         <div className="flex items-center space-x-1">
-                          <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                          <span className="text-white text-sm">{team.rating}</span>
-                          <span className="text-gray-400 text-sm">({team.reviews})</span>
+                          <Star className="w-4 h-4 text-brand-accent fill-current" />
+                          <span className="text-brand-text text-sm">{team.rating}</span>
+                          <span className="text-brand-secondary text-sm">({team.reviews})</span>
                         </div>
                       </div>
                     </div>
@@ -462,23 +462,23 @@ export default function Projects() {
 
                 {/* Details */}
                 <div className="px-6 pb-4">
-                  <p className="text-gray-300 text-sm mb-4 line-clamp-2">{team.description}</p>
+                  <p className="text-brand-secondary text-sm mb-4 line-clamp-2">{team.description}</p>
                   
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <MapPin className="w-4 h-4" />
                       <span>{team.location}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <Clock className="w-4 h-4" />
                       <span>{team.responseTime}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <Users className="w-4 h-4" />
                       <span>{team.teamSize} members</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-gray-400">
+                    <div className="flex items-center space-x-2 text-brand-secondary">
                       <DollarSign className="w-4 h-4" />
                       <span>From UGX {team.startingRate.toLocaleString()}/hr</span>
                     </div>
@@ -486,15 +486,15 @@ export default function Projects() {
 
                   {/* Services */}
                   <div className="mb-4">
-                    <h4 className="text-white text-sm font-medium mb-2">Services</h4>
+                    <h4 className="text-brand-text text-sm font-medium mb-2">Services</h4>
                     <div className="flex flex-wrap gap-1">
                       {team.services.slice(0, 3).map((service, index) => (
-                        <span key={index} className="px-2 py-1 bg-purple-400/20 text-purple-300 text-xs rounded">
+                        <span key={index} className="px-2 py-1 bg-brand-accent/20 text-brand-accent/80 text-xs rounded">
                           {service}
                         </span>
                       ))}
                       {team.services.length > 3 && (
-                        <span className="px-2 py-1 bg-gray-600 text-gray-300 text-xs rounded">
+                        <span className="px-2 py-1 bg-brand-light text-brand-secondary text-xs rounded">
                           +{team.services.length - 3} more
                         </span>
                       )}
@@ -503,10 +503,10 @@ export default function Projects() {
 
                   {/* Specialties */}
                   <div className="mb-4">
-                    <h4 className="text-white text-sm font-medium mb-2">Specialties</h4>
+                    <h4 className="text-brand-text text-sm font-medium mb-2">Specialties</h4>
                     <div className="flex flex-wrap gap-1">
                       {team.specialties.map((specialty, index) => (
-                        <span key={index} className="px-2 py-1 bg-blue-400/20 text-blue-300 text-xs rounded">
+                        <span key={index} className="px-2 py-1 bg-brand-accent/20 text-brand-accent/80 text-xs rounded">
                           {specialty}
                         </span>
                       ))}
@@ -519,14 +519,14 @@ export default function Projects() {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleViewPortfolio(team.id)}
-                      className="flex-1 py-2 glass-effect text-gray-300 hover:text-white rounded-lg transition-colors flex items-center justify-center space-x-2"
+                      className="flex-1 py-2 bg-brand-light/10 text-brand-secondary hover:text-brand-text rounded-lg transition-colors flex items-center justify-center space-x-2"
                     >
                       <Eye className="w-4 h-4" />
                       <span>View Work</span>
                     </button>
                     <button
                       onClick={() => handleHire(team.id, 'team')}
-                      className="flex-1 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all"
+                      className="flex-1 py-2 bg-brand-accent text-brand-text rounded-lg hover:shadow-lg transition-all"
                     >
                       {user?.role === 'creator' ? 'Apply' : 'Hire Team'}
                     </button>
@@ -541,11 +541,11 @@ export default function Projects() {
         {((viewMode === 'talents' && filteredTalents.length === 0) || 
           (viewMode === 'teams' && filteredTeams.length === 0)) && (
           <div className="text-center py-12">
-            <div className="text-gray-400 mb-4">
+            <div className="text-brand-secondary mb-4">
               {viewMode === 'talents' ? <Users className="w-16 h-16 mx-auto mb-4" /> : <Building className="w-16 h-16 mx-auto mb-4" />}
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">No {viewMode} found</h3>
-            <p className="text-gray-400">Try adjusting your search criteria or filters.</p>
+            <h3 className="text-xl font-semibold text-brand-text mb-2">No {viewMode} found</h3>
+            <p className="text-brand-secondary">Try adjusting your search criteria or filters.</p>
           </div>
         )}
       </div>

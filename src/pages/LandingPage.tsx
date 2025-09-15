@@ -243,60 +243,60 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                name: 'Creator Membership',
-                description: 'Build a standout portfolio, stream your media, access masterclasses, and apply to projects.',
-                benefits: ['Advanced Portfolio', 'Media & Streaming', 'Masterclasses', 'Career Projects'],
-                link: '/creator-membership',
-                featured: true
-              },
-              {
                 name: 'Member Membership',
                 description: 'Support creators, access exclusive media, follow favorites, and get early access to events.',
                 benefits: ['Exclusive Media', 'Follow & Support', 'Priority Access', 'Community'],
-                link: '/member-membership',
-                featured: false
+                link: '/member-membership'
+              },
+              {
+                name: 'Creator Membership',
+                description: 'Build a standout portfolio, stream your media, access masterclasses, and apply to projects.',
+                benefits: ['Advanced Portfolio', 'Media & Streaming', 'Masterclasses', 'Career Projects'],
+                link: '/creator-membership'
               }
-            ].map((tier, index) => (
-              <div
-                key={index}
-                className={`relative glass-effect p-8 rounded-2xl hover-lift ${tier.featured ? 'ring-2 ring-yellow-400 animate-glow' : ''}`}
-              >
-                {tier.featured && (
+            ].map((tier, index) => {
+              const isCreator = tier.name.includes('Creator');
+              const ringClass = isCreator ? 'ring-2 ring-blue-400' : 'ring-2 ring-yellow-400';
+              const badgeClass = isCreator
+                ? 'bg-gradient-to-r from-blue-500 to-teal-500 text-white'
+                : 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black';
+              const ctaClass = isCreator
+                ? 'bg-gradient-to-r from-blue-500 to-teal-500 text-white hover:shadow-xl'
+                : 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black hover:shadow-xl';
+
+              return (
+                <div key={index} className={`relative glass-effect p-8 rounded-2xl hover-lift ${ringClass}`}>
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-semibold">
+                    <span className={`${badgeClass} px-4 py-1 rounded-full text-sm font-semibold`}>
                       Recommended
                     </span>
                   </div>
-                )}
 
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-rose-500 to-purple-600 flex items-center justify-center mb-4">
-                  <Crown className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-rose-500 to-purple-600 flex items-center justify-center mb-4">
+                    <Crown className="w-6 h-6 text-white" />
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
+                  <p className="text-gray-300 mb-6">{tier.description}</p>
+
+                  <ul className="space-y-2 mb-6">
+                    {tier.benefits.map((b) => (
+                      <li key={b} className="flex items-center text-gray-300">
+                        <Star className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    onClick={() => (user ? navigate(tier.link) : navigate(`/signin?redirect=${tier.link}`))}
+                    className={`block w-full py-3 text-center font-semibold rounded-lg transition-all duration-300 ${ctaClass}`}
+                  >
+                    Explore {isCreator ? 'Creator' : 'Member'}
+                  </button>
                 </div>
-
-                <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
-                <p className="text-gray-300 mb-6">{tier.description}</p>
-
-                <ul className="space-y-2 mb-6">
-                  {tier.benefits.map((b) => (
-                    <li key={b} className="flex items-center text-gray-300">
-                      <Star className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  onClick={() => (user ? navigate(tier.link) : navigate(`/signin?redirect=${tier.link}`))}
-                  className={`block w-full py-3 text-center font-semibold rounded-lg transition-all duration-300 ${
-                    tier.featured
-                      ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black hover:shadow-xl'
-                      : 'bg-white/10 text-white hover:bg-white/20'
-                  }`}
-                >
-                  Explore {tier.name.includes('Creator') ? 'Creator' : 'Member'}
-                </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

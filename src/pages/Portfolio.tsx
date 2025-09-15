@@ -56,8 +56,8 @@ export default function Portfolio() {
       }
     ],
     certifications: [
-      { name: 'Digital Marketing Certification', issuer: 'FlourishTalents Academy', year: '2025' },
-      { name: 'Brand Ambassador Certification', issuer: 'FlourishTalents Academy', year: '2025' }
+      { name: 'Digital Marketing Certification', issuer: 'Creative Arts Institute', year: '2025' },
+      { name: 'Brand Ambassador Certification', issuer: 'Creative Arts Institute', year: '2025' }
     ],
     testimonials: [
       {
@@ -68,7 +68,7 @@ export default function Portfolio() {
       }
     ],
     awards: [
-      { name: 'Creative of the Year', issuer: 'FlourishTalents Awards', year: '2025' },
+      { name: 'Creative of the Year', issuer: 'Creative Excellence Awards', year: '2025' },
       { name: 'Best Marketing Campaign', issuer: 'Digital Media Awards', year: '2024' },
     ],
     interviews: [
@@ -110,10 +110,10 @@ export default function Portfolio() {
     <div className="min-h-screen pt-20 pb-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header Controls */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
           <div>
-            <h1 className="text-4xl font-playfair font-bold text-white mb-2">My Highlights</h1>
-            <p className="text-gray-300">Showcase your talent to the world</p>
+            <h1 className="text-4xl font-playfair font-bold text-white mb-2">Portfolio</h1>
+            <p className="text-gray-300">Professional record of my work</p>
           </div>
           
           <div className="flex items-center space-x-4">

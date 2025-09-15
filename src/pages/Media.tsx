@@ -174,16 +174,16 @@ export default function Media() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-playfair font-bold text-white mb-2">Media</h1>
-          <p className="text-gray-300">Discover amazing content from talented creators</p>
+          <p className="text-gray-300">Celebrate amazing content from the Creators of your choice.</p>
         </div>
 
         {/* Tabs */}
-        <div className="flex space-x-1 mb-8 glass-effect p-2 rounded-xl w-fit">
+        <div className="flex space-x-1 mb-8 glass-effect p-2 rounded-xl overflow-x-auto whitespace-nowrap">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`flex-shrink-0 flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeTab === tab.id
                   ? 'bg-gradient-to-r from-rose-500 to-purple-600 text-white shadow-lg'
                   : 'text-gray-300 hover:text-white hover:bg-white/10'

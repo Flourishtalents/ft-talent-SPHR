@@ -61,7 +61,7 @@ export default function SignUp() {
             {/* Account Type Selection */}
             <div>
               <label className="block text-sm font-medium text-white mb-4">Choose Account Type</label>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl mx-auto">
                 {accountTypes.map((type) => (
                   <button
                     key={type.type}

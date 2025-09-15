@@ -243,13 +243,13 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                name: 'Member Membership',
+                name: 'For Members',
                 description: 'Support creators, access exclusive media, follow favorites, and get early access to events.',
                 benefits: ['Exclusive Media', 'Follow & Support', 'Priority Access', 'Community'],
                 link: '/member-membership'
               },
               {
-                name: 'Creator Membership',
+                name: 'For Creators',
                 description: 'Build a standout portfolio, stream your media, access masterclasses, and apply to projects.',
                 benefits: ['Advanced Portfolio', 'Media & Streaming', 'Masterclasses', 'Career Projects'],
                 link: '/creator-membership'

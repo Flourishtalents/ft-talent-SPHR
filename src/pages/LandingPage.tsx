@@ -292,7 +292,7 @@ export default function LandingPage() {
                     onClick={() => (user ? navigate(tier.link) : navigate(`/signin?redirect=${tier.link}`))}
                     className={`block w-full py-3 text-center font-semibold rounded-lg transition-all duration-300 ${ctaClass}`}
                   >
-                    Explore {isCreator ? 'Creator' : 'Member'}
+                    View Details
                   </button>
                 </div>
               );

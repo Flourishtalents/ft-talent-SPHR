@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Crown, Star, Users, Award, ArrowRight, Play, Shield, Sparkles, Calendar, MapPin, Ticket } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Crown, Star, Users, Award, ArrowRight, Play, Shield, Sparkles } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 export default function LandingPage() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -225,111 +228,75 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Upcoming Events */}
+      {/* Membership Overview */}
       <div className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-playfair font-bold text-white mb-6">
-              Upcoming <span className="gradient-text">Events</span>
+              Choose Your <span className="gradient-text">Membership</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Don’t miss what’s next. Register early and connect with leading creatives.
+              Unlock learning, tools, and opportunities. No pricing here—benefits vary. Sign in to see your details.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: 'Creative Networking Night',
-                date: '2025-11-25',
-                time: '6:00 PM EAT',
-                location: 'Kampala, Uganda',
-                price: 285000,
-                rating: 4.7,
-                category: 'networking',
-                image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600',
-                featured: false
-              },
-              {
-                title: 'Brand Ambassador Masterclass',
-                date: '2025-10-28',
-                time: '2:00 PM EAT',
-                location: 'Virtual Event',
-                price: 560000,
-                rating: 4.9,
-                category: 'masterclass',
-                image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=600',
+                name: 'Creator Membership',
+                description: 'Build a standout portfolio, stream your media, access masterclasses, and apply to projects.',
+                benefits: ['Advanced Portfolio', 'Media & Streaming', 'Masterclasses', 'Career Projects'],
+                link: '/creator-membership',
                 featured: true
               },
               {
-                title: 'Talent Showcase Competition',
-                date: '2025-11-20',
-                time: '7:00 PM EAT',
-                location: 'Kampala, Uganda',
-                price: 95000,
-                rating: 4.9,
-                category: 'competition',
-                image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=600',
+                name: 'Member Membership',
+                description: 'Support creators, access exclusive media, follow favorites, and get early access to events.',
+                benefits: ['Exclusive Media', 'Follow & Support', 'Priority Access', 'Community'],
+                link: '/member-membership',
                 featured: false
               }
-            ].map((event, index) => (
-              <div key={index} className={`relative glass-effect rounded-2xl overflow-hidden hover-lift ${event.featured ? 'ring-2 ring-yellow-400 animate-glow' : ''}`}>
-                <div className="relative h-44 bg-gray-800">
-                  <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-2 py-1 bg-rose-500 text-white text-xs font-semibold rounded-full">
-                      {event.category.toUpperCase()}
+            ].map((tier, index) => (
+              <div
+                key={index}
+                className={`relative glass-effect p-8 rounded-2xl hover-lift ${tier.featured ? 'ring-2 ring-yellow-400 animate-glow' : ''}`}
+              >
+                {tier.featured && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-semibold">
+                      Recommended
                     </span>
                   </div>
-                  <div className="absolute top-3 right-3 flex items-center space-x-1 bg-black/50 px-2 py-1 rounded">
-                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="text-white text-sm">{event.rating}</span>
-                  </div>
-                  {event.featured && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-semibold">
-                        Most Anticipated
-                      </span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="p-6">
-                  <h3 className="text-white font-semibold text-lg mb-1">{event.title}</h3>
-                  <div className="text-gray-300 text-sm space-y-1 mb-4">
-                    <div className="flex items-center space-x-2">
-                      <Calendar className="w-4 h-4 text-rose-400" />
-                      <span>{new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} • {event.time}</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <MapPin className="w-4 h-4 text-rose-400" />
-                      <span>{event.location}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <div className="text-white font-bold">UGX {event.price.toLocaleString()}</div>
-                    <button className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all text-sm">
-                      <Ticket className="w-4 h-4 mr-2" />
-                      Register
-                    </button>
-                  </div>
-                </div>
-
-                {event.featured && (
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-yellow-400/0 via-yellow-400/0 to-orange-500/0 group-hover:via-yellow-400/10" />
                 )}
+
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-rose-500 to-purple-600 flex items-center justify-center mb-4">
+                  <Crown className="w-6 h-6 text-white" />
+                </div>
+
+                <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
+                <p className="text-gray-300 mb-6">{tier.description}</p>
+
+                <ul className="space-y-2 mb-6">
+                  {tier.benefits.map((b) => (
+                    <li key={b} className="flex items-center text-gray-300">
+                      <Star className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  onClick={() => (user ? navigate(tier.link) : navigate(`/signin?redirect=${tier.link}`))}
+                  className={`block w-full py-3 text-center font-semibold rounded-lg transition-all duration-300 ${
+                    tier.featured
+                      ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black hover:shadow-xl'
+                      : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                >
+                  Explore {tier.name.includes('Creator') ? 'Creator' : 'Member'}
+                </button>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to="/events"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700"
-            >
-              Browse All Events
-            </Link>
           </div>
         </div>
       </div>

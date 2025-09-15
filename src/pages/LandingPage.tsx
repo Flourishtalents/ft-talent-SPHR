@@ -236,7 +236,7 @@ export default function LandingPage() {
               Choose Your <span className="gradient-text">Membership</span>
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Unlock learning, tools, and opportunities. No pricing here—benefits vary. Sign in to see your details.
+              Access premium features, personalized content and exclusive support.
             </p>
           </div>
 

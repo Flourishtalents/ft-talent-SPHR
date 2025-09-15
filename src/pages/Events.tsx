@@ -20,7 +20,7 @@ export default function Events() {
       date: '2025-11-15',
       time: '10:00 AM - 6:00 PM EAT',
       location: 'Virtual Event',
-      organizer: 'FlourishTalents Academy',
+      organizer: 'Creative Arts Institute',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
       description: 'Join industry leaders for a full day of digital marketing insights, strategies, and networking.',
       price: 380000,
@@ -58,7 +58,7 @@ export default function Events() {
       location: 'Kampala, Uganda',
       organizer: 'Business Professionals Alliance',
       image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Connect with successful entrepreneurs and business leaders in an intimate setting.',
+      description: 'Connect with successful creatives and industry icons in a relaxed setting.',
       price: 285000,
       capacity: 100,
       registered: 89,
@@ -74,7 +74,7 @@ export default function Events() {
       date: '2025-10-28',
       time: '2:00 PM - 5:00 PM EAT',
       location: 'Virtual Event',
-      organizer: 'FlourishTalents Academy',
+      organizer: 'Creative Arts Institute',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400',
       description: 'Learn the secrets of successful brand ambassadorship from industry experts.',
       price: 560000,
@@ -130,7 +130,7 @@ export default function Events() {
     <div className="min-h-screen pt-20 pb-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
           <div>
             <h1 className="text-4xl font-playfair font-bold text-white mb-2">Events</h1>
             <p className="text-gray-300">Discover and join amazing events in your industry</p>
@@ -146,12 +146,12 @@ export default function Events() {
         </div>
 
         {/* Tabs */}
-        <div className="flex space-x-1 mb-8 glass-effect p-2 rounded-xl w-fit">
+        <div className="flex space-x-1 mb-8 glass-effect p-2 rounded-xl overflow-x-auto whitespace-nowrap">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`flex-shrink-0 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                 activeTab === tab.id
                   ? 'bg-gradient-to-r from-rose-500 to-purple-600 text-white shadow-lg'
                   : 'text-gray-300 hover:text-white hover:bg-white/10'

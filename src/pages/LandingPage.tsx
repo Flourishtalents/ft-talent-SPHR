@@ -19,7 +19,7 @@ export default function LandingPage() {
           </h1>
           
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Discover prime talent and support your favorite Creatives. Develop your own talent and flourish with our Masterclasses and Media platforms.
+            Celebrate and support the Creatives you love. Discover your potential and flourish through our Masterclasses, Media, and Career Projects.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -88,8 +88,8 @@ export default function LandingPage() {
               },
               {
                 icon: <Crown className="w-8 h-8" />,
-                title: "Membership Tiers",
-                description: "Unlock premium features with our tier system. Earn loyalty points and upgrade your experience."
+                title: "Career Projects",
+                description: "Explore live projects to join or hire for. Build your portfolio with real-world work."
               },
               {
                 icon: <Star className="w-8 h-8" />,
@@ -177,86 +177,47 @@ export default function LandingPage() {
         </div>
     </div>
 
-      {/* Membership Tiers */}
+      {/* Featured Creators */}
       <div className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-playfair font-bold text-white mb-6">
-              Choose Your <span className="gradient-text">Membership</span>
+              Featured <span className="gradient-text">Creators</span>
             </h2>
-            <p className="text-gray-300 text-lg">
-              Start free and upgrade as you grow. Each tier unlocks powerful new features.
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Explore standout profiles and discover creatives to follow and hire.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: "Free",
-                price: "UGX 0",
-                features: ["Basic Portfolio", "Public Gallery Access", "Community Support", "Basic Profile"],
-                color: "from-gray-500 to-gray-600",
-                popular: false
+                name: 'Emma Wilson',
+                role: 'Digital Marketer',
+                avatar: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150'
               },
               {
-                name: "Premium",
-                price: "UGX 110,000",
-                features: ["Advanced Portfolio", "Media Streaming", "Career Guidance", "Priority Support", "Public Portfolio"],
-                color: "from-yellow-400 to-orange-500",
-                popular: true
+                name: 'Sofia Rodriguez',
+                role: 'Model & Actress',
+                avatar: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=150'
               },
               {
-                name: "Professional",
-                price: "UGX 300,000",
-                features: ["Everything in Premium", "Masterclass Access", "Team Collaboration", "Analytics Dashboard", "Custom Branding"],
-                color: "from-purple-500 to-pink-500",
-                popular: false
+                name: 'Maya Chen',
+                role: 'Event Manager',
+                avatar: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=150'
               },
               {
-                name: "Elite",
-                price: "UGX 750,000",
-                features: ["Everything in Professional", "1-on-1 Mentorship", "Featured Listings", "API Access", "White-label Solutions"],
-                color: "from-pink-500 to-rose-500",
-                popular: false
+                name: 'Alex Carter',
+                role: 'Content Creator',
+                avatar: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=150'
               }
-            ].map((tier, index) => (
-              <div key={index} className={`glass-effect p-8 rounded-2xl hover-lift relative ${tier.popular ? 'ring-2 ring-yellow-400' : ''}`}>
-                {tier.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-4 py-1 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${tier.color} flex items-center justify-center mb-4`}>
-                  <Crown className="w-6 h-6 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-white">{tier.price}</span>
-                  <span className="text-gray-300">/month</span>
-                </div>
-                
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-300">
-                      <Star className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                
-                <Link
-                  to="/signup"
-                  className={`block w-full py-3 text-center font-semibold rounded-lg transition-all duration-300 ${
-                    tier.popular
-                      ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black hover:shadow-xl'
-                      : 'bg-white/10 text-white hover:bg-white/20'
-                  }`}
-                >
-                  Get Started
+            ].map((creator, index) => (
+              <div key={index} className="glass-effect rounded-2xl p-6 hover-lift text-center">
+                <img src={creator.avatar} alt={creator.name} className="w-20 h-20 rounded-full mx-auto mb-4 object-cover" />
+                <h3 className="text-white font-semibold">{creator.name}</h3>
+                <p className="text-gray-400 text-sm mb-4">{creator.role}</p>
+                <Link to="/portfolio" className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-rose-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all text-sm">
+                  View Profile
                 </Link>
               </div>
             ))}

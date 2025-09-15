@@ -205,12 +205,12 @@ export default function Projects() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-playfair font-bold text-white mb-2">Projects</h1>
-          <p className="text-gray-300">Find the perfect project or team for your skills</p>
+          <p className="text-gray-300">Hire the right Talent for your Project, or Join a Project for your talents</p>
         </div>
 
         {/* View Toggle and Submit Button */}
-        <div className="flex justify-between items-center mb-8">
-          <div className="flex space-x-1 glass-effect p-2 rounded-xl w-fit">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-8">
+          <div className="flex space-x-1 glass-effect p-2 rounded-xl overflow-x-auto whitespace-nowrap">
             {user?.role === 'creator' ? (
               <button
                 onClick={() => setViewMode('projects')}
@@ -259,7 +259,7 @@ export default function Projects() {
               }
               alert('Project submission feature coming soon!');
             }}
-            className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all">
+            className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all">
             Submit a Project
           </button>
         </div>

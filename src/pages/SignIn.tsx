@@ -17,7 +17,9 @@ export default function SignIn() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await signIn(formData.email, formData.password);
-    navigate('/dashboard');
+    const params = new URLSearchParams(location.search);
+    const redirect = params.get('redirect');
+    navigate(redirect || '/dashboard');
   };
 
   return (
